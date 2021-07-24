@@ -47,4 +47,8 @@
 
 # zsh
 - Rerun init and refresh zsh: exec zsh
-- 
+- Adding environment to path:
+  1. Navigate to home directory: `cd ~`
+  2. Edit resource file: `nano .zshrc`
+  3. Add environment: `export PATH=$PATH:<environmentPath>`
+  4. Check if environment has been added correctly: `echo $PATH`
