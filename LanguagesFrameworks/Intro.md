@@ -13,3 +13,7 @@
 - e.g., recipe in greek, greek friend instructs you step by step in english
 - Adv:
   - Slower
+
+## Statements vs Expressions
+- Statements do something (e.g., `if, for, while, x=1, y=x+1, return`)
+- Expressions evaluate TO a value (e.g., `x + 2, y`)
