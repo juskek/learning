@@ -1,3 +1,20 @@
+# Types of Data Structures
+
+## Main Types
+### List
+- Ordered/indexed
+- Duplicates allowed
+### Set
+- Unordered/unindexed
+- Elements immutable?
+- 
+### Dictionary
+- Unordered/unindexed
+- 
+### Tuple
+- Ordered/indexed
+- Duplicates allowed
+- Sets of elements immutable
 
 # Types of Languages
 
