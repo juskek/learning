@@ -1,4 +1,4 @@
-- [1. Development Process](#1-development-process)
+- [1. Prototyping Process](#1-prototyping-process)
   - [1.1. Pen & Paper](#11-pen--paper)
     - [1.1.1. Listen](#111-listen)
     - [1.1.2. Example](#112-example)
@@ -13,7 +13,7 @@
   - [2.2. Space/Time Tradeoff](#22-spacetime-tradeoff)
   - [Just use a hash table](#just-use-a-hash-table)
 
-## 1. Development Process
+## 1. Prototyping Process
 ### 1.1. Pen & Paper
 #### 1.1.1. Listen
 - So the objective is to...
