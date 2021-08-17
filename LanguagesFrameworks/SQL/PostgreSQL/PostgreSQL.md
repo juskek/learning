@@ -26,10 +26,10 @@ Logging into postgres services
 # psql shell
 
 Creating new user
-`CREATE ROLE justinkek WITH LOGIN PASSWORD 'password'`
+`CREATE ROLE justinkek WITH LOGIN PASSWORD 'password';`
 
 Give user ability to create new databases
-`ALTER ROLE justinkek CREATEDB`
+`ALTER ROLE justinkek CREATEDB;`
 
 Quit session
 `\q`
