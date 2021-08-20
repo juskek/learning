@@ -233,3 +233,13 @@ The complex operation is usually set to be the asynchronous function.
 
 ## 6.3. async
 ## 6.4. await
+
+
+# Inheritance
+## extends
+- making all properties, variables, functions of superclass  available to subclass
+## implements
+- making type of superclass available to subclass
+- all functions must be implemented/overridden 
+## with (mixin)
+- making properties, variables, functions of a different class available to a subclass 

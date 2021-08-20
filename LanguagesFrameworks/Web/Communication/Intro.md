@@ -11,6 +11,40 @@ Protocols/architectures used to design APIs for information exchange.
 # Protocols
 - How to send a message
 
+## Email Protocols
+Email message consists of:
+- headers
+  - RFC5322/RFC6532 field names and values
+- payload/content
+  - text, binary object, or
+  - structured sequence of sub-messages, each with their own header and content.
+
+### POP3: Post Office Protocol v3
+- Mainly to retrieve emails from remote server to local client
+- Adv.:
+  - Fast
+- Disadv.:
+  - 
+- Ports:
+  - 110: default non-encrypted
+  - 995: secure
+
+### IMAP: Internet Message Access Protocol
+- Like POP3 but with simultaneous access from multiple clients
+- Adv.:
+  - Syncing between multiple clients and server
+- Disadv.:
+  - Slow
+- Ports:
+  - 143: default non-encrypted
+  - 993: secure
+### SMTP
+- Mainly to send emails
+- Ports:
+  - 25: default non-encrypted
+  - 2525: for SiteGround servers
+  - 465: secure
+
 ## HTTP: HyperText Transfer Protocol
 - Languages: Text
 - Stack: TCP, IP
