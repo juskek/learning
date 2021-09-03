@@ -95,7 +95,8 @@ Used to:
   - e.g., superclass
 - Assert constructor parameters
 NOTE:
-- Initialiser list is exeuted before constructor body
+- Initialiser list is executed before constructor body
+- Use `this.instanceVariable` when there is a name conflict, else omit
 
 ## 2.4. Objects & Classes
 ### 2.4.1. Object Constructors

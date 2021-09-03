@@ -32,5 +32,5 @@
   - Slower
 
 ## Statements vs Expressions
-- Statements do something (e.g., `if, for, while, x=1, y=x+1, return`)
+- Statements do something (e.g., `if, for, while, x=1, y=x+1, return`), they are complete units of execution. 
 - Expressions evaluate TO a value (e.g., `x + 2, y`)
