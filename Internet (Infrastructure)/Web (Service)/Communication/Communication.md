@@ -92,3 +92,11 @@ Establishes encrypted session between two computers by:
 ### TLS Certificate
 
 ## Secure Sockets Layer (SSL) Protocol
+
+
+
+
+### Proxy Server
+- Computer/router that relays between client and server
+- Proxy: act on behalf on another
+- 

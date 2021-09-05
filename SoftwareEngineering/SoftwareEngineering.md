@@ -14,7 +14,7 @@
   - [Just use a hash table](#just-use-a-hash-table)
 
 ## 1. Prototyping Process
-### 1.1. Pen & Paper
+### 1.1. Write before you 
 #### 1.1.1. Listen
 - So the objective is to...
 #### 1.1.2. Example
@@ -32,7 +32,7 @@
 - So when the function is called, it takes in... 
 - then...
 - and returns...
-### 1.2. Keyboard & Computer
+### 1.2. Type
 #### 1.2.1. Code
 - Comment before coding
 #### 1.2.2. Test
@@ -62,3 +62,5 @@ Higher memory usage, faster run time and vice versa (e.g. hashtables).
 - MINOR is a minor release (perhaps some new features) on a previous major release
 - REVISION is usually a fix for a previous minor release (no new functionality)
 - BUILDNUMBER is incremented for each latest build of a revision.
+
+# DevOps
