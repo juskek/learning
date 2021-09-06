@@ -29,6 +29,7 @@
    - ALU stores result in MAR of RAM
 - Cycle repeated from startup to shutdown
 - Multiple cores = multiple cycles
+
 ## Volume (Logical Drive)
 - Single accessible storage 
 - Single file system
@@ -37,3 +38,9 @@
 - How data is stored and retrieved
 - If not data would be on large body with no way to tell where each starts and ends
 - Each group of data is a file
+
+# Operating Systems
+## Multitasking
+### Daemon (Dump & Examine Monitor)  
+- Continuously running background process 
+- Convention: end process with letter d, e.g. `syslogd`
