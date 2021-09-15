@@ -8,6 +8,7 @@
   - [2.4. BUILD programs](#24-build-programs)
     - [2.4.1. Syntax](#241-syntax)
     - [2.4.2. Rule Types](#242-rule-types)
+    - [Dependencies](#dependencies)
   - [2.5. WORKSPACE](#25-workspace)
   - [2.6. TERMINAL](#26-terminal)
     - [2.6.1. Double Forward Slash `//`](#261-double-forward-slash-)
@@ -107,7 +108,44 @@ rule_name(
 - `*_binary`: builds executables in a given language
 - `*_test`: special case of `*_binary`, for automated testing
   - programs `return 0` on success
-
+### Dependencies
+- Dependency Management
+  - *Actual*: X has actual dependency on Y IFF Y must be built before X can
+  - *Declared*: X has declared dependency on Y IFF X has a dependency declaration on Y in its package
+- Correct Build: A = subgraph(D)
+    - Actual dep graph = subgraph of declare dep graph
+    - i.e., directly connected nodes in A must also be directly connected in D
+    - aka, D is an overapproximation of A
+- Implications
+  - E.g.,
+      1. At first, dependencies are declared correctly: 
+      - A: `X -> Y -> Z`
+      - D: `X -> Y -> Z`
+      - Overapprox, all good
+      2. Then, someone accidentally adds code in X which is dependent on Z
+      - A: `X -> Y -> Z`, `X -> Z`
+      - D: `X -> Y -> Z`
+      - A no longer subgraph of D, but build may be ok because transitive closure of A and D are equal
+        - Transitive Closure: 
+          - Matrix representing the reachability of node j from node i
+          - 1: at least one path, 0: no path
+          - e.g., in 2.
+            ```
+            A:  1 1 1   D:  1 1 1
+                0 1 1       0 1 1
+                0 0 1       0 0 1
+            ```
+      3. Someone refactors Y so that it no longer depends on Z
+      - A: `X -> Y`, `X -> Z`
+      - D: `X -> Y`
+      - Build fails as there is no longer a path from X to Z
+        - Underapproximation
+- Dependency Types:
+  - `srcs`: Files consumed directly by rule
+  - `deps`: Points to separately-compiled modules providing header files, symbols, libs, data etc.
+  - `data`: Files not containing source code.
+    - e.g., compare unit test output to file data.
+    - not needed during build but required during execution
 ## 2.5. WORKSPACE
 
 ## 2.6. TERMINAL
