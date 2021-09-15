@@ -138,35 +138,81 @@ Establishes encrypted session between two computers by:
 # 3. Internet Protocol Suite (TCP/IP) - Practical Implementation
 - In effect
 ## 3.1. Application 
-
+- Logical components used for server-to-client communications?
+  - e.g., HTTP, SMTP, FTP
 ## 3.2. Transport 
-
+- Logical components used for communication between two nodes
+  - e.g., TCP, UDP
+- Functions:
+  - Connection-oriented communication
+  - Reliability
+  - Flow control
+  - Multiplexing
+- OSI Analogy: 4
 ## 3.3. Internet 
-
+- Logical components used to transport network packets across network boundaries
+  - e.g., IPv4, IPv6
+- Functions:
+  - Internetworking (connecting multiple networks through gateways)
+- OSI Analogy: 3
 ## 3.4. Link 
+- Physical and logical components (specs, protocols) used to connect nodes in a network
+  - e.g., MAC, WiFi, Ethernet (LAN)
+- Functions: 
+  - Maintaining link states between local nodes
+- OSI Analogy: 1, 2
+  
+
 
 # 4. Open Systems Interconnection Model (OSI) - Theoretical Model
-- Understanding functionality
+- Flow of data in a communication system
+- Each layer 
+  - serves class of functionality to the layer above it
+  - is served by the layer below it
+- Classes of functionality are realised by communication protocols
 ## 4.1. Host Layers
 ### 4.1.1. Application
-- E.g., 
+- Functionality: high-level API
+  - e.g., resource sharing, remote file access???
 - Data Unit: Data 
 ### 4.1.2. Presentation
-- E.g., 
+- Functionality: Translation of data between a networking service and an application
+  - e.g., character encoding, data compression, encryption/decryption
 - Data Unit: Data 
 ### 4.1.3. Session
-- E.g., 
+- Functionality: Managing sessions
+  - Continuous exchange of information between two nodes
 - Data Unit: Data 
 ### 4.1.4. Transport
-- E.g., 
-- Data Unit: Segment, Datagram
+- Functionality: Reliable transmission between network nodes 
+  - e.g., segmentation, achnowledgement, multiplexing (superpositioning signals to share scarce resource)
+- Data Unit: 
+  - Segment, or 
+    - Subportion of data packet, e.g., when packet size > max transmission unit or unreliable network
+  - Datagram
+    - basically a packet, but used on a different layer
+    - protocol may specify differently
 ## 4.2. Media Layers
 ### 4.2.1. Network
-- E.g., 
-- Data Unit: Packet
+- Functionality: Structuring and managing multi-node network 
+  - e.g., addressing, routing, traffic control
+- Data Unit: 
+  - Packet
+    - Control info 
+      - e.g., source/dest address, error detection code, sequencing info
+    - User data/payload
 ### 4.2.2. Data Link
-- E.g., 
-- Data Unit: Frame
+- Functionality: Reliable physical transmission between two nodes
+- Data Unit: 
+  - Frame: Unit of transmission
+    - Link layer header 
+      - e.g., serial comms start/stop bit, header/footer
+    - Packet 
+      - e.g., byte, packet
 ### 4.2.3. Physical
-- E.g., 
-- Data Unit: Bit, Symbol
+- Functionality: Transmission/receiption over physical medium
+- Data Unit: 
+  - Bit, or 
+    - 1,0
+  - Symbol 
+    - state or waveform which persists over some time, e.g., am/fm

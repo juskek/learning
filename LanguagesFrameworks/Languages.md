@@ -1,3 +1,26 @@
+# Primitive Variables
+- contains value 
+- stored in stack
+## int
+## byte
+## short
+## long
+## floatå
+## double
+## boolean
+## char
+## string
+
+# Pointer Variables
+- holds memory address of another variable
+- can be reassigned
+- 
+
+# Reference Variables
+- holds memory address of another variable
+- cannot be reassigned 
+- stored in heap
+
 # Types of Data Structures
 
 ## Main Types
@@ -34,3 +57,13 @@
 ## Statements vs Expressions
 - Statements do something (e.g., `if, for, while, x=1, y=x+1, return`), they are complete units of execution. 
 - Expressions evaluate TO a value (e.g., `x + 2, y`)
+
+
+## Static Member/Method
+- Belongs to class
+- Uses less memory
+- Compile time binding
+## Non-static Member/Method
+- Belongs to instance of class
+- Uses more memory
+- Runtime binding

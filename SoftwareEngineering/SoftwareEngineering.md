@@ -64,3 +64,20 @@ Higher memory usage, faster run time and vice versa (e.g. hashtables).
 - BUILDNUMBER is incremented for each latest build of a revision.
 
 # DevOps
+
+
+# Testing
+## Tenets
+1. Understanding big picture and priorities
+2. Understanding interactions of components within big picture
+3. Structured approach (mindmap)
+4. Practicality (reasonable testing plans)
+
+## Process
+1. Who will use it and why?
+2. What are the use cases?
+3. What are the bounds of use?
+4. What are the stress/failure conditions?
+5. How will testing be performed?
+   - Manual vs Automated
+   - Black Box vs WhiteBox

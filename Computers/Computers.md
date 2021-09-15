@@ -1,5 +1,20 @@
+## Random Access Memory
+### Stack Memory
+- Temporary data storage
+- Static allocation
+- First In Last Out
+- Stack pointer: indicates where current stack memory location is
 
+### Heap Memory
+- Dynamic allocation
+- Variables which are no longer used are marked for garbage collection
+- e.g., Classes, Objects, Arrays, Indexers, Interfaces
 
+### Address Binding
+- Association of data/instructions to physical memory location
+- Compile Time: Before program is loaded 
+- Load Time: When program is loading
+- Execution Time: During runtime
 ## Central Processing Unit
 - Retrieves and executes instructions
 - Made from logic gates
