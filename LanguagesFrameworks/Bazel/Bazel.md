@@ -144,7 +144,9 @@ rule_name(
   - `srcs`: Files consumed directly by rule
   - `deps`: Points to separately-compiled modules providing header files, symbols, libs, data etc.
   - `data`: Files not containing source code.
-    - e.g., compare unit test output to file data.
+    - e.g., compare unit test output to file data
+      - tests run in isolated dir hence data files must be specified
+      - use `glob()` and `**` to force iterate over files as rebuild only performed when dir is changed
     - not needed during build but required during execution
 ## 2.5. WORKSPACE
 
