@@ -1,5 +1,5 @@
 - [1. Overview](#1-overview)
-- [2. Structure](#2-structure)
+- [2. Main Structure](#2-main-structure)
   - [2.1. Workspace](#21-workspace)
   - [2.2. Packages](#22-packages)
   - [2.3. Targets](#23-targets)
@@ -12,11 +12,22 @@
   - [2.5. WORKSPACE](#25-workspace)
   - [2.6. TERMINAL](#26-terminal)
     - [2.6.1. Double Forward Slash `//`](#261-double-forward-slash-)
+- [Test Structure](#test-structure)
+  - [Good Test Design](#good-test-design)
+    - [Hermetic](#hermetic)
+    - [Deterministic](#deterministic)
+    - [Reentrant](#reentrant)
+  - [Testing Roles](#testing-roles)
+    - [Build System](#build-system)
+    - [Test Runner](#test-runner)
+      - [Initial Conditions](#initial-conditions)
+      - [Test Sharding](#test-sharding)
+    - [Host System](#host-system)
 
 # 1. Overview
 - Used to build binaries from source code 
 
-# 2. Structure
+# 2. Main Structure
 - Three main components:
 1. Workspace
 2. Packages
@@ -46,9 +57,8 @@ project_name/
 ## 2.2. Packages
 - **Package** is a 
   - collection of related files
-  - directory with a BUILD file to specify
-    - interdependencies
-    - what software outputs can be built
+  - directory with a BUILD file
+    - residing beneath top level dir in workspace
   - container, which contains
     - elements/targets, 
 
@@ -99,6 +109,9 @@ rule_name(
 ## 2.4. BUILD programs
 - Language: Starlark
 - Sequential execution
+- Contains *rules* and *targets* to specify
+    - interdependencies
+    - what software outputs can be built
 ### 2.4.1. Syntax
 - `.bzl`: Bazel extensions
 - `load("extension_label","symbol_name")`:
@@ -106,8 +119,12 @@ rule_name(
   - must be top-level
 ### 2.4.2. Rule Types
 - `*_binary`: builds executables in a given language
+  - `name`: symbol of the program which can be called in `build //folder:name`
 - `*_test`: special case of `*_binary`, for automated testing
   - programs `return 0` on success
+- `*_library`: separately compled modules
+  - libs can depend on libs
+  - bins and tests can depend on libs
 ### Dependencies
 - Dependency Management
   - *Actual*: X has actual dependency on Y IFF Y must be built before X can
@@ -153,3 +170,50 @@ rule_name(
 ## 2.6. TERMINAL
 ### 2.6.1. Double Forward Slash `//`
 - Indicates project root and starting a build
+
+# Test Structure
+- Tests are run with `bazel test`
+- File structure:
+```
+project_name/
+|- projectName/
+|   |- main/
+|   |- test/
+```
+## Good Test Design
+- Outcome of test must depend only on
+  - source files on which test has declared dependency
+  - products of build system on which test has declared dependency
+  - resources whose behavoiur is guaranteed by test runner to remain constant
+### Hermetic
+- Airtight
+  - Only access resources on which they have a declared dependency
+### Deterministic
+- Given a certain input will always produce same output
+### Reentrant
+- Multiple invocations of test can
+  - run concurrently on a multiprocessor
+  - be interrupted and "reentered" before completely executing on a single processor
+
+## Testing Roles
+### Build System
+- Uses runfiles to deliver code and data
+### Test Runner
+- Program which executes tests
+  - If program runs to completion with exit code 0, test passed 
+- Needs manifest of runfiles and input files which should be avail at runtime
+- Failure may occur when
+  - method fails
+  - runner takes too long to execute (based on `timeout` or implied from `size`)
+  - runner exceeds some resource limit (based on `size`)
+#### Initial Conditions
+- Environment which is set before executing the test
+  - env variables
+    - e.g., size, timeout
+  - resource limits
+    - e.g., cpu, core
+#### Test Sharding
+- Parralel testing with shards 
+### Host System
+
+
