@@ -8,21 +8,23 @@
   - [2.4. BUILD programs](#24-build-programs)
     - [2.4.1. Syntax](#241-syntax)
     - [2.4.2. Rule Types](#242-rule-types)
-    - [Dependencies](#dependencies)
+    - [2.4.3. Dependencies](#243-dependencies)
   - [2.5. WORKSPACE](#25-workspace)
+    - [2.5.1. Rule Types](#251-rule-types)
   - [2.6. TERMINAL](#26-terminal)
     - [2.6.1. Double Forward Slash `//`](#261-double-forward-slash-)
-- [Test Structure](#test-structure)
-  - [Good Test Design](#good-test-design)
-    - [Hermetic](#hermetic)
-    - [Deterministic](#deterministic)
-    - [Reentrant](#reentrant)
-  - [Testing Roles](#testing-roles)
-    - [Build System](#build-system)
-    - [Test Runner](#test-runner)
-      - [Initial Conditions](#initial-conditions)
-      - [Test Sharding](#test-sharding)
-    - [Host System](#host-system)
+- [3. Test Structure](#3-test-structure)
+  - [3.1. Good Test Design](#31-good-test-design)
+    - [3.1.1. Hermetic](#311-hermetic)
+    - [3.1.2. Deterministic](#312-deterministic)
+    - [3.1.3. Reentrant](#313-reentrant)
+  - [3.2. Testing Roles](#32-testing-roles)
+    - [3.2.1. Build System](#321-build-system)
+    - [3.2.2. Test Runner](#322-test-runner)
+      - [3.2.2.1. Initial Conditions](#3221-initial-conditions)
+      - [3.2.2.2. Test Sharding](#3222-test-sharding)
+    - [3.2.3. Host System](#323-host-system)
+- [Terminal Commands](#terminal-commands)
 
 # 1. Overview
 - Used to build binaries from source code 
@@ -125,7 +127,7 @@ rule_name(
 - `*_library`: separately compled modules
   - libs can depend on libs
   - bins and tests can depend on libs
-### Dependencies
+### 2.4.3. Dependencies
 - Dependency Management
   - *Actual*: X has actual dependency on Y IFF Y must be built before X can
   - *Declared*: X has declared dependency on Y IFF X has a dependency declaration on Y in its package
@@ -166,12 +168,30 @@ rule_name(
       - use `glob()` and `**` to force iterate over files as rebuild only performed when dir is changed
     - not needed during build but required during execution
 ## 2.5. WORKSPACE
+### 2.5.1. Rule Types
+- `bind`
+  - Gives a target an alias in the `//external` package
+- `local_repository`
+  - Allows targets from a local dir to be bound
+    - Current repo can use targets defined in this dir
+- `new_local_repository`
+  - Turns local dir into Bazel repo
+    - Current repo can define and use targets anywhere on filesystem
+- `git_repository`
+  - Clones git repo, checks out specified tag/commit, makes targets available for binding
+- `maven_jar`
+  - Downloads jar from Maven repo and makes it available for use as Java dependency
+- `maven_server`
+  - How to access a Maven repo
 
+- `xcode_config`
+  - 
+- `xcode_version`
 ## 2.6. TERMINAL
 ### 2.6.1. Double Forward Slash `//`
 - Indicates project root and starting a build
 
-# Test Structure
+# 3. Test Structure
 - Tests are run with `bazel test`
 - File structure:
 ```
@@ -180,25 +200,25 @@ project_name/
 |   |- main/
 |   |- test/
 ```
-## Good Test Design
+## 3.1. Good Test Design
 - Outcome of test must depend only on
   - source files on which test has declared dependency
   - products of build system on which test has declared dependency
   - resources whose behavoiur is guaranteed by test runner to remain constant
-### Hermetic
+### 3.1.1. Hermetic
 - Airtight
   - Only access resources on which they have a declared dependency
-### Deterministic
+### 3.1.2. Deterministic
 - Given a certain input will always produce same output
-### Reentrant
+### 3.1.3. Reentrant
 - Multiple invocations of test can
   - run concurrently on a multiprocessor
   - be interrupted and "reentered" before completely executing on a single processor
 
-## Testing Roles
-### Build System
+## 3.2. Testing Roles
+### 3.2.1. Build System
 - Uses runfiles to deliver code and data
-### Test Runner
+### 3.2.2. Test Runner
 - Program which executes tests
   - If program runs to completion with exit code 0, test passed 
 - Needs manifest of runfiles and input files which should be avail at runtime
@@ -206,14 +226,19 @@ project_name/
   - method fails
   - runner takes too long to execute (based on `timeout` or implied from `size`)
   - runner exceeds some resource limit (based on `size`)
-#### Initial Conditions
+#### 3.2.2.1. Initial Conditions
 - Environment which is set before executing the test
   - env variables
     - e.g., size, timeout
   - resource limits
     - e.g., cpu, core
-#### Test Sharding
+#### 3.2.2.2. Test Sharding
 - Parralel testing with shards 
-### Host System
+### 3.2.3. Host System
 
 
+# Terminal Commands
+- Unconditionally fetch all external deps: `bazel sync`
+- Prefetch deps for specific targets: `bazel fetch`
+- Show external dependencies in output_base/external: `ls $(bazel info output_base)/external`
+- 
