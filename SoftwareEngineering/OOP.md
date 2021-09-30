@@ -12,22 +12,26 @@
       - [1.4.2.2. Generic Datatypes](#1422-generic-datatypes)
     - [1.4.3. Subtype/Inclusion Polymorphism](#143-subtypeinclusion-polymorphism)
       - [1.4.3.1. Virtual Function](#1431-virtual-function)
-      - [Single and Dynamic Dispatch](#single-and-dynamic-dispatch)
-      - [Double Dispatch](#double-dispatch)
-      - [Multiple Dispatch](#multiple-dispatch)
-      - [Predicate Dispatch](#predicate-dispatch)
+      - [Method Dispatch](#method-dispatch)
+        - [Static vs Dynamic Dispatch](#static-vs-dynamic-dispatch)
+        - [Single vs Multiple Dispatch](#single-vs-multiple-dispatch)
+        - [Multiple Dispatch](#multiple-dispatch)
+        - [Predicate Dispatch](#predicate-dispatch)
 
 # 1. Core Concepts
 ## 1.1. Encapsulation
 - Compartmentalising objects with classes to prevent unwanted interaction
+- e.g., Cube.length, Cylinder.length
 
 ## 1.2. Abstraction
 - Extracting only the important bits of the code and hiding everything else to reduce complexity 
+- 
 
 ## 1.3. Inheritance
 - Passing of properties of a parent class to a child class
-- Parent: Super/Base
-- Child: Sub/Derived
+  - Parent: Super/Base
+  - Child: Sub/Derived
+- e.g., Cat extends Animal, gets properties size, age...
 
 ## 1.4. Polymorphism
 - Altering an object into various forms by changing parts of it
@@ -69,8 +73,7 @@
 - e.g., print(Type t)
 #### 1.4.2.2. Generic Datatypes
 - Data type which can store various subtypes
-- e.g., 
-  - List<Type t>
+- e.g., List<Type t>
 
 ### 1.4.3. Subtype/Inclusion Polymorphism
 - morphing for subclasses
@@ -78,7 +81,42 @@
 - member function which is expected to be redefined in subclasses
 - e.g., 
   - render() and update() when extending a Game class
-#### Single and Dynamic Dispatch
-#### Double Dispatch
-#### Multiple Dispatch
-#### Predicate Dispatch
+#### Method Dispatch
+- Algorithm used to decide which method to invoke in response to a message
+- e.g., System.print(integer)
+  - message: print()
+  - receiver: System
+  - argument: integer
+  - System receives the message print, what happens next?
+##### Static vs Dynamic Dispatch
+- Static: Decision made at compile time
+- Dynamic: Decision made at runtime
+  - e.g., 
+  ```
+  class Cat:
+    def speak(self):
+        print("Meow")
+
+  class Dog:
+      def speak(self):
+          print("Woof")
+
+  def speak(pet):
+      cat.speak() # static
+      pet.speak() # dynamic
+
+  ```
+##### Single vs Multiple Dispatch
+- Single: Decision based on a single type
+  - e.g., player.touch(hazard)
+    - Method invoked based on type of player only
+    - Player gets damaged when touching hazard 
+- Multiple: Decision based on multiple types
+  - e.g., player.touch(hazard), fire, cactus extends hazard
+    - Method invoked based on both type of player and hazard
+    - Player gets burnt when touching fire
+    - Player get pricked when touching cactus
+##### Multiple Dispatch
+- Dispatch based on multiple types
+- e.g., (animal1 and animal2).method()
+##### Predicate Dispatch
