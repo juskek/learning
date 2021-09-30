@@ -19,18 +19,26 @@
 
 # 1. Core Concepts
 ## 1.1. Encapsulation
-- Compartmentalising objects with classes to prevent unwanted interaction
-- e.g., Cube.length, Cylinder.length
+- Compartmentalising objects with classes to prevent unwanted interaction (hiding state details)
+- e.g., Pig.weight, Cow.weight
+- Abstraction starts when associating data types with the same behaviour together 
 
 ## 1.2. Abstraction
-- Extracting only the important bits of the code and hiding everything else to reduce complexity 
-- 
+- Extracting behaviour from data types and associating them together to simplify design  
+- e.g., Pig extends Animal, Cow extends Animal
+  - Pig and Cow is an abstraction of Animal, they all eat, sleep and move
+  - Further abstraction can be performed, e.g., DairyAnimal extends Animal, MeatAnimal extends Animal
+    - Cow, Goat extends DairyAnimal
+    - Pig, Chicken extends MeatAnimal
+      - Abstraction makes code design easier, e.g., defining ideal food for a MeatAnimal removes the need to define it twice in Pig and Chicken 
+- Inheritance starts when defining members for simplifying code
+- Polymorphism starts when defining members for various types
 
 ## 1.3. Inheritance
 - Passing of properties of a parent class to a child class
   - Parent: Super/Base
   - Child: Sub/Derived
-- e.g., Cat extends Animal, gets properties size, age...
+- e.g., Pig extends MeatAnimal, gets ideal food as well as properties from Animal...
 
 ## 1.4. Polymorphism
 - Altering an object into various forms by changing parts of it
