@@ -12,10 +12,10 @@
       - [1.4.2.2. Generic Datatypes](#1422-generic-datatypes)
     - [1.4.3. Subtype/Inclusion Polymorphism](#143-subtypeinclusion-polymorphism)
       - [1.4.3.1. Virtual Function](#1431-virtual-function)
-      - [Method Dispatch](#method-dispatch)
-        - [Static vs Dynamic Dispatch](#static-vs-dynamic-dispatch)
-        - [Single vs Multiple Dispatch](#single-vs-multiple-dispatch)
-        - [Multiple Dispatch](#multiple-dispatch)
+      - [1.4.3.2. Method Dispatch](#1432-method-dispatch)
+        - [1.4.3.2.1. Static vs Dynamic Dispatch](#14321-static-vs-dynamic-dispatch)
+        - [1.4.3.2.2. Single vs Multiple Dispatch](#14322-single-vs-multiple-dispatch)
+        - [1.4.3.2.3. Multiple Dispatch](#14323-multiple-dispatch)
 
 # 1. Core Concepts
 ## 1.1. Encapsulation
@@ -80,14 +80,14 @@
 - member function which is expected to be redefined in subclasses
 - e.g., 
   - render() and update() when extending a Game class
-#### Method Dispatch
+#### 1.4.3.2. Method Dispatch
 - Algorithm used to decide which method to invoke in response to a message
 - e.g., System.print(integer)
   - message: print()
   - receiver: System
   - argument: integer
   - System receives the message print, what happens next?
-##### Static vs Dynamic Dispatch
+##### 1.4.3.2.1. Static vs Dynamic Dispatch
 - Static: Decision made at compile time
 - Dynamic: Decision made at runtime
   - e.g., 
@@ -105,7 +105,7 @@
       pet.speak() # dynamic
 
   ```
-##### Single vs Multiple Dispatch
+##### 1.4.3.2.2. Single vs Multiple Dispatch
 - Single: Decision based on a single type
   - e.g., player.touch(hazard)
     - Method invoked based on type of player only
@@ -115,6 +115,6 @@
     - Method invoked based on both type of player and hazard
     - Player gets burnt when touching fire
     - Player get pricked when touching cactus
-##### Multiple Dispatch
+##### 1.4.3.2.3. Multiple Dispatch
 - Dispatch based on multiple types
 - e.g., (animal1 and animal2).method()
