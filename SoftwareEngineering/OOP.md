@@ -16,7 +16,6 @@
         - [Static vs Dynamic Dispatch](#static-vs-dynamic-dispatch)
         - [Single vs Multiple Dispatch](#single-vs-multiple-dispatch)
         - [Multiple Dispatch](#multiple-dispatch)
-        - [Predicate Dispatch](#predicate-dispatch)
 
 # 1. Core Concepts
 ## 1.1. Encapsulation
@@ -119,4 +118,3 @@
 ##### Multiple Dispatch
 - Dispatch based on multiple types
 - e.g., (animal1 and animal2).method()
-##### Predicate Dispatch
