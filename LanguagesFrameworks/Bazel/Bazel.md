@@ -241,4 +241,4 @@ project_name/
 - Unconditionally fetch all external deps: `bazel sync`
 - Prefetch deps for specific targets: `bazel fetch`
 - Show external dependencies in output_base/external: `ls $(bazel info output_base)/external`
-- 
+- Run tests with `System.out.println`: `bazel test --test_output=all //:nftCarsTest`
