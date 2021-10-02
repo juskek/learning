@@ -1,4 +1,6 @@
+# Unit Testing
 
+# Integration Testing
 # Testing
 ## Tenets
 1. Understanding big picture and priorities
