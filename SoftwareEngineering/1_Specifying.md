@@ -60,6 +60,8 @@
 - Verify with stakeholders
 ## 2.3. Specification of Task
 - Small projects:
+  - Scrum
+- Medium projects:
   - Design Doc
 - Large projects:
   - Use SRS

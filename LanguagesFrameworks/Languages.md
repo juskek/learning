@@ -24,7 +24,7 @@
 # Types of Data Structures
 
 ## Main Types
-### List
+### List/Array
 - Ordered/indexed
 - Duplicates allowed
 ### Set
@@ -33,7 +33,9 @@
 - 
 ### Dictionary
 - Unordered/unindexed
-- 
+- Key Value Pair
+- Built off arrays
+- O(1) retrieval 
 ### Tuple
 - Ordered/indexed
 - Duplicates allowed
