@@ -5,7 +5,7 @@
 ## byte
 ## short
 ## long
-## floatå
+## float
 ## double
 ## boolean
 ## char
