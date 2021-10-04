@@ -2,6 +2,7 @@
   - [1.1. Stack Memory](#11-stack-memory)
   - [1.2. Heap Memory](#12-heap-memory)
   - [1.3. Address Binding](#13-address-binding)
+  - [1.4. Memory Leak](#14-memory-leak)
 - [2. Central Processing Unit](#2-central-processing-unit)
   - [2.1. Control Unit (CU)](#21-control-unit-cu)
     - [2.1.1. (Current) Instruction Register (CIR/IR)](#211-current-instruction-register-cirir)
@@ -65,6 +66,10 @@
 - Compile Time: Before program is loaded 
 - Load Time: When program is loading
 - Execution Time: During runtime
+## 1.4. Memory Leak
+- Failure to release unused memory
+
+
 # 2. Central Processing Unit
 - Retrieves and executes instructions
 - Made from logic gates

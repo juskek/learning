@@ -14,9 +14,10 @@
     - [1.4.2. Dynamic](#142-dynamic)
   - [1.5. Memory Management](#15-memory-management)
     - [1.5.1. Manual](#151-manual)
-    - [1.5.2. Automatic Garbage Collection](#152-automatic-garbage-collection)
-    - [1.5.3. Deterministic](#153-deterministic)
-    - [1.5.4. Automatic Reference Counting](#154-automatic-reference-counting)
+    - [1.5.2. Automatic Memory Management](#152-automatic-memory-management)
+    - [1.5.3. Automatic Garbage Collection (GC)](#153-automatic-garbage-collection-gc)
+    - [1.5.4. Deterministic](#154-deterministic)
+    - [1.5.5. Automatic Reference Counting](#155-automatic-reference-counting)
 
 # 1. Types of Languages
 
@@ -84,12 +85,33 @@
 ### 1.5.1. Manual
 - Explicit allocation and freeing of memory
 - e.g,, C malloc, free
-### 1.5.2. Automatic Garbage Collection
-
-### 1.5.3. Deterministic
-### 1.5.4. Automatic Reference Counting
-
-
+### 1.5.2. Automatic Memory Management
+- Allocation and freeing of memory for automatic variables
+  - Non-static local variables of a subroutine (function)
+  - 
+### 1.5.3. Automatic Garbage Collection (GC)
+- Automatic freeing of memory allocated to objects that are no longer usable at 
+  - Specified intervals
+  - Low memory
+- Advantages:
+  - Handles retain cycles
+- Disadvantages:
+  - Synchronous: can compete for processor time
+    - GC traverses all object references and marks live objects/roots
+    - GC deallocates dead objects
+  - Requires memory resources 
+    - Sometimes five times more memory as opposed to manual
+    - e.g., If your program needs 100 MB of RAM for its own objects, GC will require you to allocate 200–300 MB of space for optimal performance
+### 1.5.4. Deterministic
+- Always produces same result given a set of initial conditions
+### 1.5.5. Automatic Reference Counting
+- Deallocation of objects when the number of references to them reaches zero
+- Advantages:
+  - Asynchronous: relies on reference count
+- Disadvantages:
+  - Retain cycle memory leak
+    - 2 dead objects referencing each other
+    - Prevention: Explicit memory management with Storage Modifiers
 Language Compilation Process
 1. Translation: Translate compiled language to assembly language
 2. Assemble: Convert assembly language to machine code 
