@@ -1,11 +1,20 @@
-# Dependency Inversion of Control (IOC)
+- [1. Dependency Inversion of Control (IOC)](#1-dependency-inversion-of-control-ioc)
+  - [1.1. Dependency Injection](#11-dependency-injection)
+    - [1.1.1. Injection Types](#111-injection-types)
+    - [1.1.2. Constructor Injection](#112-constructor-injection)
+    - [1.1.3. Setter Injection](#113-setter-injection)
+    - [1.1.4. Field Injection](#114-field-injection)
+  - [1.2. Service Locator](#12-service-locator)
+  - [1.3. Producer Graphs](#13-producer-graphs)
+
+# 1. Dependency Inversion of Control (IOC)
 - Traditional Control Flow:
   - Code calls libs
 - Inversion of Control
   - Framework calls into code
 
 
-## Dependency Injection
+## 1.1. Dependency Injection
 - Process by which an object (client) receives other objects it depends on (service) through an injector
   - Injector: Code that passes service to client
 - Characteristics
@@ -19,16 +28,18 @@
 - Disadv.:
   - Decreased readability/ increased complexity
   - Reliance on framework, even if buggy
-### Injection Types
+### 1.1.1. Injection Types
 - Client is given dependency (bar)
 ```
     //Foo Needs an IBar
     public class Foo {
         Bar bar;
 
+        // constructor inj
         Foo(Bar bar) {
             this.bar = bar;
         }
+        // setter inj
         setDep(Bar bar) {
             this.bar = bar;
         }
@@ -40,18 +51,19 @@
         }
     }
 ```
-### Constructor Injection 
+### 1.1.2. Constructor Injection 
 - Used when
-  - dependencies are obligatory
+  - deps are obligatory
     - when this obj is constructed, it NEEDS this dep
-  - goal is permanency
-    - dep is not gonna change
-### Setter Injection
+  - deps are not gonna change
+### 1.1.3. Setter Injection
 - Used when
   - dependencies are replaceable
-    - 
-### Field Injection
-## Service Locator
+
+### 1.1.4. Field Injection
+- Convenient to write and implement
+  - 
+## 1.2. Service Locator
 - Client (foo) responsible for creating service (bar)
 ```
     //Foo Needs an Bar
@@ -68,4 +80,4 @@
     }
 ```
 
-## Producer Graphs 
+## 1.3. Producer Graphs 
