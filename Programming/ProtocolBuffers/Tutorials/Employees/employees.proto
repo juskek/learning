@@ -1,0 +1,19 @@
+// proto version
+syntax = "proto3";
+
+// Proto file is a schema definition of the messages and structured data
+
+// define message
+message Employee {
+    // schema: property type name = serialisation sequence
+    // serialisation sequence: property no
+    int32 id = 1; 
+    string name = 2;
+    float salary = 3;
+}
+
+// send array
+message Employees {
+    // repeated property of type Employee
+    repeated Employee employees = 1;
+}
