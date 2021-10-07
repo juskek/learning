@@ -35,3 +35,9 @@
   - Scalability
 # RESTful API
 - API which adopts 
+
+
+# SOAP vs REST
+- SOAP XML is a lot bigger than REST JSON
+- SOAP has a schema
+- REST does not have a schema
