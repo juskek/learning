@@ -31,5 +31,5 @@ console.log(JSON.stringify(employees))
 
 // write to desk to show size of file
 const fs = require("fs");
-fs.writeFileSync("jsondata.json",JSON.stringify(employees))
+fs.writeFileSync("employees.json",JSON.stringify(employees))
 // enter ls -lh in terminal: 125B
