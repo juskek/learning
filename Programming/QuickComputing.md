@@ -8,6 +8,7 @@
       - [1.2.1.2. Concurrency](#1212-concurrency)
       - [1.2.1.3. Polling](#1213-polling)
       - [1.2.1.4. Interrupts/Callback](#1214-interruptscallback)
+      - [Asynchronous Procedure Call](#asynchronous-procedure-call)
 - [2. Problems](#2-problems)
   - [2.1. Shared Memory Access](#21-shared-memory-access)
   - [2.2. Race Condition/Hazard (RC)](#22-race-conditionhazard-rc)
@@ -49,8 +50,12 @@
 ### 1.2.1. Asynchronous Computing
 - Definition: EXECUTING other computations/operations while WAITING for some computation/operation to finish
   - EXECUTION may/may not happen at the same time
+  - WAITING:
+    - for data
+    - for time delay
   - Async operation: one which allows other operations to execute before it completes
-- Can be achieved through:
+
+**Can be achieved through:**
 #### 1.2.1.1. Parallelism
 - Start other operations in new core
 #### 1.2.1.2. Concurrency
@@ -63,7 +68,8 @@
 #### 1.2.1.4. Interrupts/Callback
 - Start other operations in same thread, WAIT for async operation to finish
 - CPU is signalled from by change in outcome
-
+#### Asynchronous Procedure Call
+- 
 # 2. Problems
 ## 2.1. Shared Memory Access
 - Threads may operate on the same memory resource
