@@ -7,6 +7,7 @@
 - [7. cd](#7-cd)
 - [8. code (VSCODE)](#8-code-vscode)
 - [9. nano](#9-nano)
+- [sude](#sude)
 - [zsh](#zsh)
 
 # 1. SYNTAX
@@ -44,6 +45,10 @@
 
 # 9. nano
 - 
+
+# sude
+- super user do (root command privileges)
+
 
 # zsh
 - Rerun init and refresh zsh: exec zsh

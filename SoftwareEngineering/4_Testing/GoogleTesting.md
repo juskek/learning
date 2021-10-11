@@ -18,7 +18,12 @@
   - Features:
     - Recent failure history
     - Distance metrics from source files to test
-    - Test size and runtime data
+    - Test size
+      - Larger size, more likely that
+        - a dep will fail
+        - test runner times out
+        - exceeds test runner memory
+    - Runtime data
   - Target: 
     - Pass/Fail
   - Performance Parameters:

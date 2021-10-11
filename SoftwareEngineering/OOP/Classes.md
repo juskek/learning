@@ -4,6 +4,7 @@
   - [1.3. Abstract](#13-abstract)
   - [Interface](#interface)
   - [1.4. Concrete](#14-concrete)
+  - [Enum](#enum)
   - [1.5. Singleton](#15-singleton)
   - [1.6. PO_O](#16-po_o)
   - [Factory](#factory)
@@ -46,6 +47,8 @@
 ## 1.4. Concrete
 - Regular class, all members implemented
 
+## Enum
+- Represents group of immutable constants
 ## 1.5. Singleton
 - Can only be instantiated once
 - Applications
