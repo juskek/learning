@@ -26,4 +26,4 @@ Components
 - Procurement
 
 ## Process Mining
-- Data Mining: 
+- Underlying tech used for EMS abd Execution Apps
