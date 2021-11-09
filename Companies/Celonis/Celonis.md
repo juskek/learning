@@ -26,3 +26,4 @@ Components
 - Procurement
 
 ## Process Mining
+- Data Mining: 
