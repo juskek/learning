@@ -30,6 +30,10 @@
   - Must be nested in non-static class
   - Only static members
   - Cannot access non-members of super
+  - To implement non-nested,
+    1. final class
+    2. private constructor
+    3. static members 
 
 ## 1.2. Final
 - Immutable after declaration
