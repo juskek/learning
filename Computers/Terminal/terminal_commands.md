@@ -7,7 +7,7 @@
 - [7. cd](#7-cd)
 - [8. code (VSCODE)](#8-code-vscode)
 - [9. nano](#9-nano)
-- [sude](#sude)
+- [sudo](#sudo)
 - [zsh](#zsh)
 
 # 1. SYNTAX
@@ -46,7 +46,7 @@
 # 9. nano
 - 
 
-# sude
+# sudo
 - super user do (root command privileges)
 
 

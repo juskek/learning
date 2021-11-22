@@ -8,6 +8,7 @@
     - [](#)
   - [2.2. Source (Uncompiled Apps)](#22-source-uncompiled-apps)
   - [2.3 Application-Level](#23-application-level)
+    - [nvm (Node.js)](#nvm-nodejs)
     - [npm (Node.js, JavaScript)](#npm-nodejs-javascript)
     - [pip (Python, PyPI)](#pip-python-pypi)
     - [conda (Python, R)](#conda-python-r)
@@ -18,6 +19,9 @@
     - [2.2.6. wget](#226-wget)
 - [3. File Retriever](#3-file-retriever)
   - [3.1. wget](#31-wget)
+- [Data Transfer](#data-transfer)
+  - [curl](#curl)
+  - [wget](#wget)
 
 # 1. Shell
 - Command interpreter that executes other programs
@@ -42,8 +46,10 @@
 ## 2.2. Source (Uncompiled Apps)
 
 ## 2.3 Application-Level
-
+### nvm (Node.js)
+- Node version manager
 ### npm (Node.js, JavaScript)
+- Node package manager
 ### pip (Python, PyPI)
 ### conda (Python, R)
 ### 2.2.2. yum
@@ -59,3 +65,8 @@
 # 3. File Retriever
 ## 3.1. wget
 - Retrieving files using HTTP, HTTPS, FTP and FTPS
+
+# Data Transfer
+## curl
+
+## wget
