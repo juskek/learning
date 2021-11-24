@@ -32,12 +32,20 @@
 ## Linear Structure
 - Elements form a sequence
 ### 4.1.1. Arrays
+#### Overview
 - Sequence of values
 - Ordered
 - Indexed (Random Access)
 - Unique Index/Key
 - Non-unique values
 - Fixed Size
+
+#### Storage
+- Contiguous
+- Fixed size upon declaration
+#### Complexity
+- Access: O(1)
+
 - Operations:
   - Traverse
   - Search
@@ -61,6 +69,15 @@
   - Head: Points to first node
   - Node: Key + Next Pointer
   - Tail: Last node, pointer to null
+
+#### Overview
+#### Storage
+- Non-contiguous
+- Dynamic size 
+
+#### Complexity
+- Access: O(n)
+
 - Ordered
 - Unindexed Sequential Access
 - Non-unique 
@@ -102,16 +119,32 @@
 - Unordered/unindexed
 - Elements immutable?
 - 
-### 4.1.3. Dictionary/Hash Tables
+### 4.1.3. Dictionaries/Hash Tables
+#### Overview
 - Array of key-value pairs
 - Unordered
+
+#### Types
+- Hash Map: implemented with dicts,
+- Hash Set: implemented with set, no duplicates allowed
+#### Complexity
+- O(1) retrieval (no collisions)
+- O(n/k) retrieval (chaining) 
+- O(n) retrieval (linear probing)
+
+#### Principle
+- Insertion
+  1. Key passed to hash function
+  2. Hash function generates bucket/hashcode
+  3. Key assigned to hashcode
+- Retrieval
+
+##### Resolving Collisions
+- Chaining
+- Linear Probing
+- Open Addressing
 - Process:
   1. Key is passed to hash function
-     - h(k) = k % m
-       - Hash function, h()
-       - Key, k
-       - Size of hash table, m 
-       - Hash code/value, h(k): Array index at which the value will be stored
      - OUT: Hash code
   2. Store/Retrieve value in array at hash code index
      - Direct Addressing: No duplicate hash codes
@@ -119,7 +152,6 @@
      - Chaining: Array of linked lists with original key 
      - Open Addressing: Probing of alternative unoccupied indexes with a specific sequence
 - Built off arrays
-- O(1) retrieval 
 - Applications:
   - Database Keys
   - Associate Arrays
