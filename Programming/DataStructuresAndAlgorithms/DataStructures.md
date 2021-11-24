@@ -7,14 +7,14 @@
 # 1. Primitive Variables
 - contains value 
 - stored in stack
-## Boolean
-## Character
-## Floating-point
-## Fixed-point
-## Integer
-## Reference
-## Enumerated
-## Date-Time
+## 1.1. Boolean
+## 1.2. Character
+## 1.3. Floating-point
+## 1.4. Fixed-point
+## 1.5. Integer
+## 1.6. Reference
+## 1.7. Enumerated
+## 1.8. Date-Time
 ##
 
 # 2. Pointer Variables
@@ -29,10 +29,10 @@
 
 # 4. Data Structures
 - Storage, organisation and management of primitive variables for efficient access
-## Linear Structure
+## 4.1. Linear Structure
 - Elements form a sequence
 ### 4.1.1. Arrays
-#### Overview
+#### 4.1.1.1. Overview
 - Sequence of values
 - Ordered
 - Indexed (Random Access)
@@ -40,10 +40,10 @@
 - Non-unique values
 - Fixed Size
 
-#### Storage
+#### 4.1.1.2. Storage
 - Contiguous
 - Fixed size upon declaration
-#### Complexity
+#### 4.1.1.3. Complexity
 - Access: O(1)
 
 - Operations:
@@ -64,18 +64,18 @@
   - Bubble sort
   - Merge sort
 
-### Linked List
+### 4.1.2. Linked List
 - Sequence of nodes
   - Head: Points to first node
   - Node: Key + Next Pointer
   - Tail: Last node, pointer to null
 
-#### Overview
-#### Storage
+#### 4.1.2.1. Overview
+#### 4.1.2.2. Storage
 - Non-contiguous
 - Dynamic size 
 
-#### Complexity
+#### 4.1.2.3. Complexity
 - Access: O(n)
 
 - Ordered
@@ -95,7 +95,7 @@
   - Alt+Tab
   - Symbol table management in compiler design
 
-### Stack
+### 4.1.3. Stack
 - LIFO
 - Applications:
   - Shunting-yard algorithm
@@ -104,7 +104,7 @@
   - Push
   - Pop
   - Peek
-### Queue
+### 4.1.4. Queue
 - FIFO
 - Operations:
   - Enqueue
@@ -113,56 +113,56 @@
   - Multithreading
   - Priority Queues
 
-## Random Structures
+## 4.2. Random Structures
 - Elements are randomly stored
-### 4.1.2. Set
+### 4.2.1. Set
 - Unordered/unindexed
 - Elements immutable?
 - 
-### 4.1.3. Dictionaries/Hash Tables
-#### Overview
+### 4.2.2. Dictionaries/Hash Tables
+#### 4.2.2.1. Overview
 - Array of key-value pairs
 - Unordered
 
-#### Types
+#### 4.2.2.2. Types
 - Hash Map: implemented with dicts,
 - Hash Set: implemented with set, no duplicates allowed
-#### Complexity
+#### 4.2.2.3. Complexity
 - O(1) retrieval (no collisions)
 - O(n/k) retrieval (chaining) 
 - O(n) retrieval (linear probing)
 
-#### Principle
+
+#### 4.2.2.4. Working Principle
 - Insertion
   1. Key passed to hash function
   2. Hash function generates bucket/hashcode
-  3. Key assigned to hashcode
+  3. No duplicate, key directly addressed to hashcode
 - Retrieval
 
-##### Resolving Collisions
+
+
+##### 4.2.2.4.1. Resolving Collisions
 - Chaining
+  - Hashcode points to linked list 
 - Linear Probing
 - Open Addressing
-- Process:
-  1. Key is passed to hash function
-     - OUT: Hash code
-  2. Store/Retrieve value in array at hash code index
-     - Direct Addressing: No duplicate hash codes
-  3. Resolve collisions
-     - Chaining: Array of linked lists with original key 
-     - Open Addressing: Probing of alternative unoccupied indexes with a specific sequence
-- Built off arrays
+  - Probing of alternative unoccupied indexes with a specific sequence
+
 - Applications:
   - Database Keys
   - Associate Arrays
   - Used to implement sets
-### 4.1.4. Tuple
+
+#### 4.2.2.5. Micromechanisms
+- Built off arrays
+### 4.2.3. Tuple
 - Ordered/indexed
 - Duplicates allowed
 - Sets of elements immutable
 
-## Hierarchical
-### Trees
+## 4.3. Hierarchical
+### 4.3.1. Trees
 - Each node has a key (value) and three pointers (parent, left, right)
 - Applications:
   - Binary Search Tree
@@ -173,5 +173,5 @@
   - AVL
   - N-ary
 
-### Heaps
+### 4.3.2. Heaps
 - Tree with sorting based on parent
