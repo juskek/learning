@@ -138,8 +138,18 @@
   1. Key passed to hash function
   2. Hash function generates bucket/hashcode
   3. No duplicate, key directly addressed to hashcode
-- Retrieval
+- Search
+  1. Key passed to hash function and hashcode generated
+  2. Search for value at hashcode 
 
+##### Generating Hash
+- Distribution to buckets should be uniform
+- Tradeoff between no. of buckets and capacity of a bucket
+- No. of buckets, N
+  - should be on same order as elements, n
+  - Load factor: n/N < 0.8, else rehash with 2N
+    - Open Addressing 
+  - should be a prime number to reduce collisions 
 
 
 ##### 4.2.2.4.1. Resolving Collisions
@@ -148,13 +158,13 @@
 - Linear Probing
 - Open Addressing
   - Probing of alternative unoccupied indexes with a specific sequence
-
+- Height-balanced Binary Search Tree
 - Applications:
   - Database Keys
   - Associate Arrays
   - Used to implement sets
 
-#### 4.2.2.5. Micromechanisms
+#### 4.2.2.5. Memory Location
 - Built off arrays
 ### 4.2.3. Tuple
 - Ordered/indexed
