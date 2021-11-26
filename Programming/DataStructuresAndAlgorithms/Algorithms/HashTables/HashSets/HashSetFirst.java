@@ -33,18 +33,7 @@ public class HashSetFirst {
         int probeCount = 0;
         int altHashCode = hashCode;
         
-        // System.out.println("Adding: "+key);
-        // if (key == 40) {
-        //     System.out.println("current set:");
-        //     for (int i=0;i<hashSet.length;i++) {
-        //         System.out.println(hashSet[i]);
-        // }
-        // }
-        
         for (int i=0;i<hashSet.length;i++) {
-            if (key==40) {
-                // System.out.println("i:"+i);
-            }
             // resetting bucket to start if reached end
             if (altHashCode == hashSet.length-1) {
                 // reached end of hashcodes 
@@ -58,11 +47,9 @@ public class HashSetFirst {
             }
             // checking if alt bucket found
             if ((hashSet[altHashCode] == null)) {
-                // System.out.println("Added: "+key);
                 return altHashCode;
             } // else do nothing 
         }
-        // System.out.println("No alt hash code found.");
         return -1; // invalid arr position
     }
 
@@ -88,7 +75,6 @@ public class HashSetFirst {
                 return altHashCode;
             } // else do nothing 
         }
-        // System.out.println("No alt hash code found.");
         return -1; // invalid arr position
     }
     
@@ -156,13 +142,6 @@ public class HashSetFirst {
     }
     
     public boolean contains(int key) {
-        // if (key == 40) {
-            // System.out.println("looking for 40, current set:");
-            // for (int i=0;i<hashSet.length;i++) {
-            //     System.out.println(hashSet[i]);
-            // }
-        // }
-        
         int hashCode = hash(key);
         if (hashSet[hashCode] != null) {
             if (hashSet[hashCode] == key) {
