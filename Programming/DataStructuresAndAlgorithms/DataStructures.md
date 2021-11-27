@@ -128,11 +128,40 @@
 - Hash Map: implemented with dicts,
 - Hash Set: implemented with set, no duplicates allowed
 #### 4.2.2.3. Complexity
-- O(1) retrieval (no collisions)
-- O(n/k) retrieval (chaining) 
-- O(n) retrieval (linear probing)
+##### Space
+- O(n)
+##### Time
+- No collisions
+  - Insert
+    - Best: O(1)
+  - Search/Remove
+    - Best: O(1)
 
-
+- Chaining
+  - Insert
+    - Best: O(1)
+  - Search/Remove
+    - Best: O(1)
+    - Worst: O(n)
+    - Expected: O(n/k)
+- Linear Probing
+  - Insert
+    - Best: O(1)
+    - Worst: O(n)
+    - Expected:
+  - Search/Remove
+    - Best: O(1)
+    - Worst: O(n)
+    - Expected:
+- Height-balanced BST
+  - Insert
+    - Best: O(1)
+    - Worst: O(log n)
+    - Expected:
+  - Search/Remove
+    - Best: O(1)
+    - Worst: O(log n)
+    - Expected:
 #### 4.2.2.4. Working Principle
 - Insertion
   1. Key passed to hash function
@@ -159,6 +188,7 @@
 - Open Addressing
   - Probing of alternative unoccupied indexes with a specific sequence
 - Height-balanced Binary Search Tree
+  - Preferred to chaining when too many keys in a bucket
 - Applications:
   - Database Keys
   - Associate Arrays
