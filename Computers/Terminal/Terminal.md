@@ -48,6 +48,8 @@
 ## 2.3 Application-Level
 ### nvm (Node.js)
 - Node version manager
+- Installed per user
+- Invoked per shell
 ### npm (Node.js, JavaScript)
 - Node package manager
 ### pip (Python, PyPI)

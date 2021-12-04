@@ -1,6 +1,17 @@
+# Javascript
+## Compilers
+- V8
 
-
-# Syntax
+## Environments
+- Node.js
+  - Server side
+  - Manual implementation
+- Cloudflare worker
+  - Server side
+  - Existing network
+- Chrome V8
+  - Client side
+## Syntax
 ## Immediately Invoked Function Expression (IIFE)
 - Running the function as soon as it is 
 - Returns `undefined` by default, use `!` to return `true`
