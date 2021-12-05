@@ -1,9 +1,16 @@
+- [1. Client-Server Request Process](#1-client-server-request-process)
+  - [1.1. Request Line](#11-request-line)
+    - [1.1.1. Method](#111-method)
+    - [1.1.2. URI](#112-uri)
+    - [1.1.3. HTTPS Version](#113-https-version)
+  - [1.2. >=0 Header Fields](#12-0-header-fields)
+  - [1.3. Message Body](#13-message-body)
+  - [Cross-Origin Resource Sharing (CORS)](#cross-origin-resource-sharing-cors)
 
-
-# Client-Server Request Proces
+# 1. Client-Server Request Process
 Client sends request to server in form of message with format:
-## Request Line
-### Method
+## 1.1. Request Line
+### 1.1.1. Method
 - GET: Retrieve all info
 - HEAD: Retrieve status and header info only
 - POST: Add info
@@ -12,7 +19,7 @@ Client sends request to server in form of message with format:
 - CONNECT: Establish tunnel
 - OPTIONS: Decribe communication options for URI
 - TRACE: Test loop message along with path
-### URI
+### 1.1.2. URI
 Which resource to apply method to, absolute URI used
 - Server: *
 - Proxy: https://<>.com/<>.<>
@@ -23,10 +30,14 @@ METHOD /<>.<> HTTPS/1.1
 
 Host: <>.com
 `
-### HTTPS Version
-## >=0 Header Fields
-## Message Body
+### 1.1.3. HTTPS Version
+## 1.2. >=0 Header Fields
+## 1.3. Message Body
 
 
 **Example**
 GET https://www.example.com/test.pdf HTTPS/1.1
+
+## Cross-Origin Resource Sharing (CORS)
+- Allows server to permit loading resources from external origins  
+  - For security, browsers restrict cross-origin HTTP requests intiated from scripts

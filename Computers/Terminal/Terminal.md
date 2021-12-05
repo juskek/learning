@@ -50,8 +50,12 @@
 - Node version manager
 - Installed per user
 - Invoked per shell
+  - run every time new shell is created `nvm install <version>` or `nvm use <version>`
 ### npm (Node.js, JavaScript)
 - Node package manager
+- Deps downloaded and put into node_modules folder 
+  - Project specific 
+  - @types folder provides TS support for JS libs
 ### pip (Python, PyPI)
 ### conda (Python, R)
 ### 2.2.2. yum
