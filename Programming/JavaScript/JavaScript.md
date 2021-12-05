@@ -12,7 +12,19 @@
 - Chrome V8
   - Client side
 ## Syntax
-## Immediately Invoked Function Expression (IIFE)
+### Variable Declaration
+#### var
+- global/function scoped
+- can be redeclared and updated 
+- hoisted and init as undefined
+#### let
+- block scoped {}
+- can be updated but not redeclared
+- hoisted but not init
+#### const
+- block scoped {}
+- cannot be redeclared or updated
+### Immediately Invoked Function Expression (IIFE)
 - Running the function as soon as it is 
 - Returns `undefined` by default, use `!` to return `true`
 - 
