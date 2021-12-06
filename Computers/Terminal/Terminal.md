@@ -10,6 +10,7 @@
   - [2.3 Application-Level](#23-application-level)
     - [nvm (Node.js)](#nvm-nodejs)
     - [npm (Node.js, JavaScript)](#npm-nodejs-javascript)
+      - [npx](#npx)
     - [pip (Python, PyPI)](#pip-python-pypi)
     - [conda (Python, R)](#conda-python-r)
     - [2.2.2. yum](#222-yum)
@@ -56,6 +57,12 @@
 - Deps downloaded and put into node_modules folder 
   - Project specific 
   - @types folder provides TS support for JS libs
+
+#### npx
+- Node package execute
+  - Run packages without having to install them locally/globally
+- Preinstalled with npm
+- 
 ### pip (Python, PyPI)
 ### conda (Python, R)
 ### 2.2.2. yum
@@ -74,5 +81,15 @@
 
 # Data Transfer
 ## curl
-
+- client URL
+- Supported protocols
+  - FTP, FTPS, HTTP, HTTPS, SCP, SFTP, TFTP, TELNET, DICT, LDAP, LDAPS, FILE, POP3, IMAP, SMTP, RTMP and RTSP
+- Features
+  - upload and sending
 ## wget
+- www get
+- recursive downloads
+- supported protocols
+  - HTTP, HTTPS and FTP
+- Features
+  - HTTP POST
