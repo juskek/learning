@@ -64,3 +64,8 @@ async function handleRequest(request) {
 - Open connections between client and origin server 
   - Communicate with Workers in realtime
   - e.g, live chat, gaming
+
+
+### Third-party
+- itty-router: 
+  - router for Workers
