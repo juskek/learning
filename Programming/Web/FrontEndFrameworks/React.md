@@ -5,7 +5,7 @@
 - Reusable dynamic components
   - Holds state
 - JSX
-  - Dynamic HTML with JS expressions
+  - Dynamic HTML with {JS expressions}
 - Interactive UIs with Virtual DOMS
   - Target specific components to update
 
@@ -56,7 +56,10 @@
   - Can be passed down to components via 
     - props 
     - redux API
-    - 
+
+### onChange
+- Value of element changed
+- Handling of event: `onChange = {(e) => function(...)}`
 ## Hooks
 - Functions that hooks into React state and lifecycle features from function components
 
@@ -88,6 +91,14 @@
 ## Styling
 ### Style Sheet: index.css
 - template styles for entire app
+- Defined as:
+  ```
+  .styleName {
+    property: value;
+  }
+  ```
+- Utilised as: `<div className = 'styleName'>`
+
 
 ### Style Components
 
