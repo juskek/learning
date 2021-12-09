@@ -47,3 +47,6 @@
 
 
 ```
+## JSON
+- JSONs are strings formatted with properties and fields
+- JS Objects are not strings
