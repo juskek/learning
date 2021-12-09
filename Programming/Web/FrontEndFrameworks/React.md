@@ -42,6 +42,21 @@
 - Notes
   - Passing state with context API possible
 
+#### Prop Drilling
+- State defined in App.js
+  - Process
+    1. Define function which manipulates state in App.js
+    2. Pass it down to component where desired event occurs using props
+       - e.g., `const functionName = (arg) => {...}`, 
+       - `<Component propName = {functionName}>`, 
+       - `const Component = (props) => {return <Button onEvent = {props.functionName}>`
+- State gets passed down through props, actions get passed up to update state
+## Events
+- Events are stored in App.js
+  - Can be passed down to components via 
+    - props 
+    - redux API
+    - 
 ## Hooks
 - Functions that hooks into React state and lifecycle features from function components
 
