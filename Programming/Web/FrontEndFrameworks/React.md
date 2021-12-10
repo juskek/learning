@@ -60,6 +60,8 @@
 ### onChange
 - Value of element changed
 - Handling of event: `onChange = {(e) => function(...)}`
+
+
 ## Hooks
 - Functions that hooks into React state and lifecycle features from function components
 
@@ -77,6 +79,7 @@
 
     return ...
   }
+  ```
 ### useEffect
 - Perform side effects in function components
 - e.g., 
@@ -117,3 +120,17 @@
 - index.css 
 ### components/
 - Uppercase for components filenames
+
+## Convention
+- Functions which are called when an event occurs
+  - handleEvent
+    - e.g., handleClick
+  - handleSubjectEvent
+    - e.g., handleSubmitClick
+- Props which are passed down to wait for event trigger
+  - onEvent
+    - e.g., onClick
+  - onSubjectEvent
+    - e.g., onSubmitClick
+- Full example: 
+  - `<Component onSubmitClick={handleSubmitClick}>`
