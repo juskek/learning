@@ -11,6 +11,8 @@
 # Static Hosting
 - Websites which do not require backing server or special rendering engine 
 
+TODO: summarise
+https://olds.co/2018/static-hosting-on-gcp/
 
 ## Google Cloud Platform
 ### GCS + CNAME
