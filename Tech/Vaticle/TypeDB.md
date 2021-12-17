@@ -1,0 +1,31 @@
+
+# TypeDB
+- Graph like database with
+  - entities
+  - relationships
+  - attributes
+- Features
+  - Expressivity
+    - Entity-Relationship Model
+      - Entities are things of interest
+      - Relationships are defined between them
+    - Type Hierarchy (OOP)
+      - Inheritance
+      - Polymorphism
+    - N-ary Relations
+      - More than one relationship between entities 
+    - Nested Relations
+      - e.g. marriage between 2 people entities is located in a city entity
+  - Safety
+    - Logical Data Validation
+      - Checks entities and relations by evaluatin polymorphic types
+    - Logical Query Validation
+      - Static type checking during query compilation
+  - Rule Definitions
+    - Define rules to infer behaviours
+  - Logical Inference
+      - Queries are translated into all possible interpretations via
+        - Type Based Inference
+          - Checks relationships between types
+        - Rule Based Inference
+          - Checks rules for relationships
