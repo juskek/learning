@@ -23,6 +23,20 @@
 - [5. Syntax](#5-syntax)
   - [5.1. Arrow](#51-arrow)
   - [5.2. Closure/Inline Functions](#52-closureinline-functions)
+  - [Anonymous Multiline Function](#anonymous-multiline-function)
+  - [Conditional Rendering](#conditional-rendering)
+    - [Binary if](#binary-if)
+    - [Ternary Operator](#ternary-operator)
+    - [Spread Operator](#spread-operator)
+    - [](#)
+- [Layout](#layout)
+  - [SafeArea](#safearea)
+  - [Container](#container)
+  - [SizedBox](#sizedbox)
+  - [Constraints](#constraints)
+  - [Performance](#performance)
+    - [build() is costly](#build-is-costly)
+    - [itemExtend for ListView](#itemextend-for-listview)
 - [6. Animations](#6-animations)
   - [6.1. Drawing-based](#61-drawing-based)
   - [6.2. Code-based](#62-code-based)
@@ -149,12 +163,70 @@ Inner function has access to parent variables
 ## 5.2. Closure/Inline Functions
 ```
     () => expression
+    
     // is equivalent to
     function () {
         return expression
     }
 ```
 
+## Anonymous Multiline Function
+```
+  () {expression}
+  // is equivalent to
+  function () {
+      return expression
+  }
+```
+
+## Conditional Rendering
+### Binary if
+`if (Responsive.isDesktop()) Text('Desktop)`
+### Ternary Operator
+`Responsive.isDesktop() ? Text('Desktop') : null`
+### Spread Operator
+- Can be used to return multiple widgets
+`if (Responsive.isDesktop()) ...[
+    Text('Desktop')
+    Text('Mode')
+  ]
+`
+
+###  
+# Layout
+## SafeArea
+- Should exist at top level
+  - for iPhone notches etc
+## Container
+- Expands to fit parent 
+
+## SizedBox
+- Fixed size or
+- unconstrained in height or width if it is null
+## Constraints
+- Constraints go down
+- Sizes go up
+- Parents set position
+
+- A widget
+  - gets constrained by its parent
+  - tells its parent what its size is within the constraints 
+  - tells its children what their constraints are
+  - positions its children
+## Performance
+### build() is costly
+- avoid repetitive build in complex layouts
+- PROBLEM: top level stateless widget has a build method
+  - within build method there are a bunch of widgets
+  - whenever build method is called again all widgets are rebuilt
+- SOLUTIONS:
+  - when calling widget which doesnt change, declare as constant
+  - extend widget as stateless widget, which has its own build method
+    - widget will only be built once
+
+### itemExtend for ListView 
+- when action triggers jumping to other end of the list
+- 
 # 6. Animations
 Animation Types:
 ## 6.1. Drawing-based
