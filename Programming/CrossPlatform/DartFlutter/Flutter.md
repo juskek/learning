@@ -34,6 +34,11 @@
     - [Rules](#rules)
     - [Process](#process)
     - [Limitations](#limitations)
+    - [Mechanisms](#mechanisms)
+    - [Types of Constraints](#types-of-constraints)
+      - [As Big As Possible](#as-big-as-possible)
+      - [Same Size if Possible](#same-size-if-possible)
+      - [Fixed Size if Possible](#fixed-size-if-possible)
   - [6.1. BoxConstraints](#61-boxconstraints)
   - [LayoutBuilder](#layoutbuilder)
   - [FractionallySizedBox](#fractionallysizedbox)
@@ -226,11 +231,34 @@ For an arbitrary widget X, its parent Y, and its children Z
    - min/max height/width
 2. X passes its constraints down to Z
 3. X asks Z what size they are
+   - width/height
 4. X sets positions of Z
 5. X tells Y its final size 
 
 ### Limitations
+- Size defined in widget only within constraints of parent
+- Widget does not know/decide its position
+- Defining alignment must be specific or child size may be ignored
 
+### Mechanisms
+- RenderBox
+  - Underlying object used to render widgets
+
+### Types of Constraints
+#### As Big As Possible
+- e.g.,
+  - Center
+  - ListView
+  - Container (null width and height)
+#### Same Size if Possible
+- e.g.,
+  - Transform
+  - Opacity
+  - Container (non null width or height)
+#### Fixed Size if Possible
+- e.g., 
+  - Image
+  - Text
 ## 6.1. BoxConstraints
 - Passed to Container.constraints
 - Can specify max/min width/height
