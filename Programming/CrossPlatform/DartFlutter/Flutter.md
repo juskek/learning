@@ -30,15 +30,16 @@
     - [5.4.3. Multiple if](#543-multiple-if)
     - [5.4.4. Spread Operator](#544-spread-operator)
 - [6. Sizing](#6-sizing)
+  - [Sizes, Constraints and Positions](#sizes-constraints-and-positions)
   - [6.1. BoxConstraints](#61-boxconstraints)
   - [LayoutBuilder](#layoutbuilder)
+  - [FractionallySizedBox](#fractionallysizedbox)
 - [7. Layout](#7-layout)
   - [7.1. SafeArea](#71-safearea)
   - [7.2. Container](#72-container)
   - [7.3. Aligning](#73-aligning)
   - [7.4. SizedBox](#74-sizedbox)
   - [SliverGrid](#slivergrid)
-  - [7.5. Constraints](#75-constraints)
   - [7.6. Performance](#76-performance)
     - [7.6.1. build() is costly](#761-build-is-costly)
     - [7.6.2. itemExtend for ListView](#762-itemextend-for-listview)
@@ -211,13 +212,51 @@ Inner function has access to parent variables
 `
 
 # 6. Sizing
+## Sizes, Constraints and Positions
+- Constraints
+  - min/max height/width
+
+- Rules
+  - Constraints go down
+  - Sizes go up
+  - Parent sets position
+
+For an arbitrary widget X, its parent Y, and its children Z
+1. Y passes its constraints down to X
+2. X passes its constraints down to Z
+3. X asks Z what size they are
+4. X sets positions of Z
+5. X tells Y its final size 
+
+
+- A widget
+  - gets constrained by its parent
+  - tells its parent what its size is within the constraints 
+  - tells its children what their constraints are
+  - positions its children
 ## 6.1. BoxConstraints
 - Passed to Container.constraints
 - Can specify max/min width/height
 
 ## LayoutBuilder 
-- Builds at layout time and provides parent constraints 
+- Provides parent constraints to child
+- Builds at layout time
 
+## FractionallySizedBox
+- Provides percentage of parent size to child
+
+```
+ParentWidget(
+  child: FractionallySizedBox(
+        widthFactor: 0.5,
+        heightFactor: 0.5,
+        child: Container(
+          // this container won't be larger than
+          // half of its parent size
+        ),
+  )
+)
+```
 
 # 7. Layout
 ## 7.1. SafeArea
@@ -238,17 +277,6 @@ Inner function has access to parent variables
 - Need parent to specify layout
 - Does not depend on size of children
 
-
-## 7.5. Constraints
-- Constraints go down
-- Sizes go up
-- Parents set position
-
-- A widget
-  - gets constrained by its parent
-  - tells its parent what its size is within the constraints 
-  - tells its children what their constraints are
-  - positions its children
 ## 7.6. Performance
 ### 7.6.1. build() is costly
 - avoid repetitive build in complex layouts
