@@ -31,6 +31,9 @@
     - [5.4.4. Spread Operator](#544-spread-operator)
 - [6. Sizing](#6-sizing)
   - [Sizes, Constraints and Positions](#sizes-constraints-and-positions)
+    - [Rules](#rules)
+    - [Process](#process)
+    - [Limitations](#limitations)
   - [6.1. BoxConstraints](#61-boxconstraints)
   - [LayoutBuilder](#layoutbuilder)
   - [FractionallySizedBox](#fractionallysizedbox)
@@ -213,27 +216,21 @@ Inner function has access to parent variables
 
 # 6. Sizing
 ## Sizes, Constraints and Positions
-- Constraints
-  - min/max height/width
-
-- Rules
+### Rules
   - Constraints go down
   - Sizes go up
   - Parent sets position
-
+### Process 
 For an arbitrary widget X, its parent Y, and its children Z
 1. Y passes its constraints down to X
+   - min/max height/width
 2. X passes its constraints down to Z
 3. X asks Z what size they are
 4. X sets positions of Z
 5. X tells Y its final size 
 
+### Limitations
 
-- A widget
-  - gets constrained by its parent
-  - tells its parent what its size is within the constraints 
-  - tells its children what their constraints are
-  - positions its children
 ## 6.1. BoxConstraints
 - Passed to Container.constraints
 - Can specify max/min width/height
