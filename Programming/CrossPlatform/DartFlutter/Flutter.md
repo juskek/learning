@@ -3,6 +3,14 @@
   - [1.2. routes](#12-routes)
   - [1.3. styles](#13-styles)
   - [1.4. index](#14-index)
+- [State and Widgets](#state-and-widgets)
+  - [State Definition](#state-definition)
+  - [Stateless Widget](#stateless-widget)
+  - [Stateful Widget](#stateful-widget)
+- [Lifecycles](#lifecycles)
+- [Trees](#trees)
+  - [Widget Tree](#widget-tree)
+  - [Element Tree](#element-tree)
 - [2. Syntax](#2-syntax)
   - [2.1. Operators](#21-operators)
     - [2.1.1. Comparisons](#211-comparisons)
@@ -98,6 +106,44 @@
 ## 1.2. routes
 ## 1.3. styles
 ## 1.4. index
+
+# State and Widgets
+## State Definition
+- Info within a widget which is read for building
+
+## Stateless Widget
+- State in widget immutable once built
+- Explanation:
+  - Once widget builds element,
+  - Data and functions which exist in widget cannot change what is on the screen
+- Components:
+  - Widget Tree
+    - Stateless Widget
+      - Creates stateless element and mounts it in element tree
+  - Element Tree
+    - Stateless Element
+## Stateful Widget
+- State in widget mutable after build
+- Explanation:
+  - asdf
+- Components:
+  - Widget Tree
+    - Stateful Widget
+      - Creates stateful element and mounts it 
+    - State Widget
+  - Element Tree
+    - Stateful Element
+    - Stateless Element
+# Lifecycles
+
+# Trees
+## Widget Tree
+- How and what to show on screen
+- Creates elements to mount in element tree
+## Element Tree
+- What is shown on screen
+
+
 # 2. Syntax
 ## 2.1. Operators
 ### 2.1.1. Comparisons
