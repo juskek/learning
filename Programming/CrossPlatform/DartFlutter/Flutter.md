@@ -3,14 +3,14 @@
   - [1.2. routes](#12-routes)
   - [1.3. styles](#13-styles)
   - [1.4. index](#14-index)
-- [State and Widgets](#state-and-widgets)
+- [State, Widgets and Elements](#state-widgets-and-elements)
   - [State Definition](#state-definition)
   - [Stateless Widget](#stateless-widget)
   - [Stateful Widget](#stateful-widget)
-- [Lifecycles](#lifecycles)
+  - [Lifecycles](#lifecycles)
 - [Trees](#trees)
-  - [Widget Tree](#widget-tree)
-  - [Element Tree](#element-tree)
+  - [Widget Tree (WT)](#widget-tree-wt)
+  - [Element Tree (ET)](#element-tree-et)
 - [2. Syntax](#2-syntax)
   - [2.1. Operators](#21-operators)
     - [2.1.1. Comparisons](#211-comparisons)
@@ -107,7 +107,7 @@
 ## 1.3. styles
 ## 1.4. index
 
-# State and Widgets
+# State, Widgets and Elements
 ## State Definition
 - Info within a widget which is read for building
 
@@ -122,6 +122,11 @@
       - Builds stateless element and mounts it
   - Element Tree
     - Stateless Element
+- Lifecycle Events
+  - build() called when
+    - Widget created for first time
+    - Parent changes/updates
+    - InheritedWidget changes
 ## Stateful Widget
 - State in widget mutable after build
 - Explanation:
@@ -140,13 +145,29 @@
     - Stateful Element
       2 Requests state object from stateful widget
     - Stateless Element
-# Lifecycles
+- Lifecycle Events
+  - build() called when
+    - Stateful changes but State persists
+    - State changes
+  - initState() called when
+    - object inserted into WT
+  - dispose() called when
+    - object removed from WT permanently
+  - didChangeDependencies() called when
+    - State changes
+  - didUpdateWidget() called when
+    - Stateful config changes
+  - deactivate() called when
+    - object removed from WT temp
+  - setState() triggers
+    - State change
+## Lifecycles
 
 # Trees
-## Widget Tree
+## Widget Tree (WT)
 - How, what and when to show on screen
 - Creates elements to mount in element tree
-## Element Tree
+## Element Tree (ET)
 - What is currently shown on screen
 
 
