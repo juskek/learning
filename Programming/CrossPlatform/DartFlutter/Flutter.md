@@ -125,7 +125,8 @@
 ## Stateful Widget
 - State in widget mutable after build
 - Explanation:
-  - asdf
+  - Once widget builds element, 
+  - Data and functions which exist in widget can change
 - Components:
   - Widget Tree
     - Stateful Widget
@@ -143,10 +144,10 @@
 
 # Trees
 ## Widget Tree
-- How and what to show on screen
+- How, what and when to show on screen
 - Creates elements to mount in element tree
 ## Element Tree
-- What is shown on screen
+- What is currently shown on screen
 
 
 # 2. Syntax
