@@ -119,7 +119,7 @@
 - Components:
   - Widget Tree
     - Stateless Widget
-      - Creates stateless element and mounts it in element tree
+      - Builds stateless element and mounts it
   - Element Tree
     - Stateless Element
 ## Stateful Widget
@@ -129,10 +129,15 @@
 - Components:
   - Widget Tree
     - Stateful Widget
-      - Creates stateful element and mounts it 
+      1 Creates stateful element and mounts it 
+      3 Creates state object
     - State Widget
+      4 Holds state and used as reference for stateful element 
+      5 Builds stateless element and mounts it 
+      6 Change in state triggers rebuild
   - Element Tree
     - Stateful Element
+      2 Requests state object from stateful widget
     - Stateless Element
 # Lifecycles
 
