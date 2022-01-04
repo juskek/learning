@@ -5,106 +5,107 @@
   - [1.4. index](#14-index)
 - [2. State, Widgets and Elements](#2-state-widgets-and-elements)
   - [2.1. State Definition](#21-state-definition)
-  - [2.2. Stateless Widget](#22-stateless-widget)
-  - [2.3. Stateful Widget](#23-stateful-widget)
-  - [2.4. Lifecycles](#24-lifecycles)
+  - [2.2. StatelessWidget](#22-statelesswidget)
+  - [2.3. StatefulWidget](#23-statefulwidget)
+  - [2.4. InheritedWidget](#24-inheritedwidget)
+  - [2.5. Lifecycles](#25-lifecycles)
 - [3. Trees](#3-trees)
   - [3.1. Widget Tree (WT)](#31-widget-tree-wt)
   - [3.2. Element Tree (ET)](#32-element-tree-et)
-- [Keys](#keys)
-  - [When to use](#when-to-use)
-  - [Where to use](#where-to-use)
-  - [Which to use](#which-to-use)
-  - [Mechanism](#mechanism)
-- [4. Syntax](#4-syntax)
-  - [4.1. Operators](#41-operators)
-    - [4.1.1. Comparisons](#411-comparisons)
-      - [4.1.1.1. Assignment (=)](#4111-assignment-)
-      - [4.1.1.2. Equality (==)](#4112-equality-)
-      - [4.1.1.3. Identity (===, or identical(a,b))](#4113-identity--or-identicalab)
-  - [4.2. Conditional](#42-conditional)
-    - [4.2.1. if null (??)](#421-if-null-)
-  - [4.3. Cascade Notation](#43-cascade-notation)
-  - [4.4. Initialiser List (:)](#44-initialiser-list-)
-  - [4.5. Objects & Classes](#45-objects--classes)
-    - [4.5.1. Object Constructors](#451-object-constructors)
-- [5. Sound Null Safety](#5-sound-null-safety)
-  - [5.1. Unsound null safety](#51-unsound-null-safety)
-  - [5.2. Disable sound null safety](#52-disable-sound-null-safety)
-- [6. Scoping](#6-scoping)
-  - [6.1. Lexical Scoping](#61-lexical-scoping)
-- [7. Syntax](#7-syntax)
-  - [7.1. Arrow](#71-arrow)
-  - [7.2. Closure/Inline Functions](#72-closureinline-functions)
-  - [7.3. Anonymous Multiline Function](#73-anonymous-multiline-function)
-  - [7.4. Conditional Rendering](#74-conditional-rendering)
-    - [7.4.1. Binary if](#741-binary-if)
-    - [7.4.2. Ternary Operator](#742-ternary-operator)
-    - [7.4.3. Multiple if](#743-multiple-if)
-    - [7.4.4. Spread Operator](#744-spread-operator)
-- [8. Sizing](#8-sizing)
-  - [8.1. Sizes, Constraints and Positions](#81-sizes-constraints-and-positions)
-    - [8.1.1. Rules](#811-rules)
-    - [8.1.2. Process](#812-process)
-    - [8.1.3. Limitations](#813-limitations)
-    - [8.1.4. Mechanisms](#814-mechanisms)
-    - [8.1.5. Types of Constraints](#815-types-of-constraints)
-      - [8.1.5.1. As Big As Possible](#8151-as-big-as-possible)
-      - [8.1.5.2. Same Size if Possible](#8152-same-size-if-possible)
-      - [8.1.5.3. Fixed Size if Possible](#8153-fixed-size-if-possible)
-  - [8.2. BoxConstraints](#82-boxconstraints)
-  - [8.3. LayoutBuilder](#83-layoutbuilder)
-  - [8.4. FractionallySizedBox](#84-fractionallysizedbox)
-- [9. Layout](#9-layout)
-  - [9.1. SafeArea](#91-safearea)
-  - [9.2. Container](#92-container)
-  - [9.3. Aligning](#93-aligning)
-  - [9.4. SizedBox](#94-sizedbox)
-  - [9.5. SliverGrid](#95-slivergrid)
-  - [9.6. Performance](#96-performance)
-    - [9.6.1. build() is costly](#961-build-is-costly)
-    - [9.6.2. itemExtend for ListView](#962-itemextend-for-listview)
-- [10. Weird Problems](#10-weird-problems)
-  - [10.1. Vertical Dividers not showing](#101-vertical-dividers-not-showing)
-- [11. Scrolling](#11-scrolling)
-  - [11.1. ListView](#111-listview)
-  - [11.2. ListView.builder()](#112-listviewbuilder)
-  - [11.3. ListView.custom()](#113-listviewcustom)
-- [12. Animations](#12-animations)
-  - [12.1. Drawing-based](#121-drawing-based)
-  - [12.2. Code-based](#122-code-based)
-    - [12.2.1. Implicit (AnimatedFoo)](#1221-implicit-animatedfoo)
-      - [12.2.1.1. BuiltIn](#12211-builtin)
-      - [12.2.1.2. Custom: TweenAnimationBuilder](#12212-custom-tweenanimationbuilder)
-    - [12.2.2. Explicit (FooTransition)](#1222-explicit-footransition)
-      - [12.2.2.1. Built In](#12221-built-in)
-      - [12.2.2.2. Custom](#12222-custom)
-        - [12.2.2.2.1. AnimatedWidget](#122221-animatedwidget)
-        - [12.2.2.2.2. CustomPainter](#122222-custompainter)
-        - [12.2.2.2.3. AnimatedBuilder](#122223-animatedbuilder)
-- [13. Asynchronous Programming](#13-asynchronous-programming)
-  - [13.1. Terminology](#131-terminology)
-  - [13.2. futures](#132-futures)
-  - [13.3. async](#133-async)
-  - [13.4. await](#134-await)
-- [14. Generators (*)](#14-generators-)
-- [15. Inheritance](#15-inheritance)
-  - [15.1. extends](#151-extends)
-  - [15.2. implements](#152-implements)
-  - [15.3. with (mixin)](#153-with-mixin)
-- [16. Variable Types](#16-variable-types)
-  - [16.1. Lists](#161-lists)
-    - [16.1.1. Constructors](#1611-constructors)
-      - [16.1.1.1. .empty()](#16111-empty)
-      - [16.1.1.2. .filled()](#16112-filled)
-      - [16.1.1.3. .from()](#16113-from)
-      - [16.1.1.4. .generate()](#16114-generate)
-      - [16.1.1.5. .of()](#16115-of)
-      - [16.1.1.6. .unmodifiable()](#16116-unmodifiable)
-  - [16.2. Modifiers](#162-modifiers)
-    - [16.2.1. static](#1621-static)
-    - [16.2.2. final](#1622-final)
-    - [16.2.3. const](#1623-const)
+- [4. Keys](#4-keys)
+  - [4.1. When to use](#41-when-to-use)
+  - [4.2. Where to use](#42-where-to-use)
+  - [4.3. Which to use](#43-which-to-use)
+  - [4.4. Mechanism](#44-mechanism)
+- [5. Syntax](#5-syntax)
+  - [5.1. Operators](#51-operators)
+    - [5.1.1. Comparisons](#511-comparisons)
+      - [5.1.1.1. Assignment (=)](#5111-assignment-)
+      - [5.1.1.2. Equality (==)](#5112-equality-)
+      - [5.1.1.3. Identity (===, or identical(a,b))](#5113-identity--or-identicalab)
+  - [5.2. Conditional](#52-conditional)
+    - [5.2.1. if null (??)](#521-if-null-)
+  - [5.3. Cascade Notation](#53-cascade-notation)
+  - [5.4. Initialiser List (:)](#54-initialiser-list-)
+  - [5.5. Objects & Classes](#55-objects--classes)
+    - [5.5.1. Object Constructors](#551-object-constructors)
+- [6. Sound Null Safety](#6-sound-null-safety)
+  - [6.1. Unsound null safety](#61-unsound-null-safety)
+  - [6.2. Disable sound null safety](#62-disable-sound-null-safety)
+- [7. Scoping](#7-scoping)
+  - [7.1. Lexical Scoping](#71-lexical-scoping)
+- [8. Syntax](#8-syntax)
+  - [8.1. Arrow](#81-arrow)
+  - [8.2. Closure/Inline Functions](#82-closureinline-functions)
+  - [8.3. Anonymous Multiline Function](#83-anonymous-multiline-function)
+  - [8.4. Conditional Rendering](#84-conditional-rendering)
+    - [8.4.1. Binary if](#841-binary-if)
+    - [8.4.2. Ternary Operator](#842-ternary-operator)
+    - [8.4.3. Multiple if](#843-multiple-if)
+    - [8.4.4. Spread Operator](#844-spread-operator)
+- [9. Sizing](#9-sizing)
+  - [9.1. Sizes, Constraints and Positions](#91-sizes-constraints-and-positions)
+    - [9.1.1. Rules](#911-rules)
+    - [9.1.2. Process](#912-process)
+    - [9.1.3. Limitations](#913-limitations)
+    - [9.1.4. Mechanisms](#914-mechanisms)
+    - [9.1.5. Types of Constraints](#915-types-of-constraints)
+      - [9.1.5.1. As Big As Possible](#9151-as-big-as-possible)
+      - [9.1.5.2. Same Size if Possible](#9152-same-size-if-possible)
+      - [9.1.5.3. Fixed Size if Possible](#9153-fixed-size-if-possible)
+  - [9.2. BoxConstraints](#92-boxconstraints)
+  - [9.3. LayoutBuilder](#93-layoutbuilder)
+  - [9.4. FractionallySizedBox](#94-fractionallysizedbox)
+- [10. Layout](#10-layout)
+  - [10.1. SafeArea](#101-safearea)
+  - [10.2. Container](#102-container)
+  - [10.3. Aligning](#103-aligning)
+  - [10.4. SizedBox](#104-sizedbox)
+  - [10.5. SliverGrid](#105-slivergrid)
+  - [10.6. Performance](#106-performance)
+    - [10.6.1. build() is costly](#1061-build-is-costly)
+    - [10.6.2. itemExtend for ListView](#1062-itemextend-for-listview)
+- [11. Weird Problems](#11-weird-problems)
+  - [11.1. Vertical Dividers not showing](#111-vertical-dividers-not-showing)
+- [12. Scrolling](#12-scrolling)
+  - [12.1. ListView](#121-listview)
+  - [12.2. ListView.builder()](#122-listviewbuilder)
+  - [12.3. ListView.custom()](#123-listviewcustom)
+- [13. Animations](#13-animations)
+  - [13.1. Drawing-based](#131-drawing-based)
+  - [13.2. Code-based](#132-code-based)
+    - [13.2.1. Implicit (AnimatedFoo)](#1321-implicit-animatedfoo)
+      - [13.2.1.1. BuiltIn](#13211-builtin)
+      - [13.2.1.2. Custom: TweenAnimationBuilder](#13212-custom-tweenanimationbuilder)
+    - [13.2.2. Explicit (FooTransition)](#1322-explicit-footransition)
+      - [13.2.2.1. Built In](#13221-built-in)
+      - [13.2.2.2. Custom](#13222-custom)
+        - [13.2.2.2.1. AnimatedWidget](#132221-animatedwidget)
+        - [13.2.2.2.2. CustomPainter](#132222-custompainter)
+        - [13.2.2.2.3. AnimatedBuilder](#132223-animatedbuilder)
+- [14. Asynchronous Programming](#14-asynchronous-programming)
+  - [14.1. Terminology](#141-terminology)
+  - [14.2. futures](#142-futures)
+  - [14.3. async](#143-async)
+  - [14.4. await](#144-await)
+- [15. Generators (*)](#15-generators-)
+- [16. Inheritance](#16-inheritance)
+  - [16.1. extends](#161-extends)
+  - [16.2. implements](#162-implements)
+  - [16.3. with (mixin)](#163-with-mixin)
+- [17. Variable Types](#17-variable-types)
+  - [17.1. Lists](#171-lists)
+    - [17.1.1. Constructors](#1711-constructors)
+      - [17.1.1.1. .empty()](#17111-empty)
+      - [17.1.1.2. .filled()](#17112-filled)
+      - [17.1.1.3. .from()](#17113-from)
+      - [17.1.1.4. .generate()](#17114-generate)
+      - [17.1.1.5. .of()](#17115-of)
+      - [17.1.1.6. .unmodifiable()](#17116-unmodifiable)
+  - [17.2. Modifiers](#172-modifiers)
+    - [17.2.1. static](#1721-static)
+    - [17.2.2. final](#1722-final)
+    - [17.2.3. const](#1723-const)
 
 # 1. Architecture
 ## 1.1. main
@@ -116,7 +117,7 @@
 ## 2.1. State Definition
 - Info within a widget which is read for building
 
-## 2.2. Stateless Widget
+## 2.2. StatelessWidget
 - State in widget immutable once built
 - Explanation:
   - Once widget builds element,
@@ -132,7 +133,7 @@
     - Widget created for first time
     - Parent changes/updates
     - InheritedWidget changes
-## 2.3. Stateful Widget
+## 2.3. StatefulWidget
 - State in widget mutable after build
 - Explanation:
   - Once widget builds element, 
@@ -166,7 +167,10 @@
     - object removed from WT temp
   - setState() triggers
     - State change
-## 2.4. Lifecycles
+## 2.4. InheritedWidget
+- Allows sub widgets to access InheritedWidget state from anywhere in the tree without passing state down through multiple widgets
+
+## 2.5. Lifecycles
 
 # 3. Trees
 ## 3.1. Widget Tree (WT)
@@ -175,15 +179,15 @@
 ## 3.2. Element Tree (ET)
 - What is currently shown on screen
 
-# Keys
-## When to use
+# 4. Keys
+## 4.1. When to use
 - When state needs to be preserved in widget tree
   - e.g., Rearranging items in a list
-## Where to use
+## 4.2. Where to use
 - Top of widget subtree which is being rearranged
   - e.g., if items in list have padding, key should be assigned to padding
 
-## Which to use
+## 4.3. Which to use
 - Depends on state to be preserved
 - ValueKey
   - When state of each widget being rearranged is unique
@@ -202,23 +206,23 @@
     - e.g., InheritedWidget, redux/block pattern
 - DO NOT
   - Set random number in key as everytime widget is rebuilt, a number different from element key is generated, making it redundant
-## Mechanism
+## 4.4. Mechanism
 - Flutter's element-widget matching mechanism checks for same type 
 - Rearranging Stateless Widgets
   1. Stateles
 - Rearranging Stateful Widgets
-# 4. Syntax
-## 4.1. Operators
-### 4.1.1. Comparisons
-#### 4.1.1.1. Assignment (=)
+# 5. Syntax
+## 5.1. Operators
+### 5.1.1. Comparisons
+#### 5.1.1.1. Assignment (=)
 - Assign value to variable
-#### 4.1.1.2. Equality (==)
+#### 5.1.1.2. Equality (==)
 - Check if two variables/objects are equal
-#### 4.1.1.3. Identity (===, or identical(a,b))
+#### 5.1.1.3. Identity (===, or identical(a,b))
 - Check if two variables/objects refer to the same instance/object
-## 4.2. Conditional
-### 4.2.1. if null (??)
-## 4.3. Cascade Notation
+## 5.2. Conditional
+### 5.2.1. if null (??)
+## 5.3. Cascade Notation
 Prevents repeating target for several call methods on same object.
 ```
 List list = [];
@@ -229,7 +233,7 @@ list
   ..add(color1)
   ..add(color2);
 ```
-## 4.4. Initialiser List (:)
+## 5.4. Initialiser List (:)
 Used to:
 - Initialise list of expressions that can:
   - access constructor parameters
@@ -241,8 +245,8 @@ NOTE:
 - Initialiser list is executed before constructor body
 - Use `this.instanceVariable` when there is a name conflict, else omit
 
-## 4.5. Objects & Classes
-### 4.5.1. Object Constructors
+## 5.5. Objects & Classes
+### 5.5.1. Object Constructors
 Construct/initialise an object of that class.
 Initialisation:
 ```
@@ -257,7 +261,7 @@ class FooClass {
 - Named and positional optional arguments cannot be used concurrently
 - Values must be provided for all positional arguments if one argument wants to be used, e.g., `FooClass(1,2)`
 - This does not apply for named optional arguments, e.g., `FooClass(arg2=2)`
-# 5. Sound Null Safety
+# 6. Sound Null Safety
 - Types are non-nullable by default
 - Variables cannot contain `null` unless allowed to:
   - To allow null values, add `?` after type declaration
@@ -266,30 +270,30 @@ class FooClass {
     int? aNullableInt = null; 
 ```
 - Non-null assertion operator variable!.method tells the compiler that the value of the variable will not be null during runtime, and hence methods can be called on the variable.
-## 5.1. Unsound null safety
+## 6.1. Unsound null safety
 - Mixed-version programme
 - Some files with sound NS and some with unsound NS
 - Runtime null only occurs from leakage of unsound to sound code
 
-## 5.2. Disable sound null safety
+## 6.2. Disable sound null safety
 `flutter run --no-sound-null-safety`
 
 
-# 6. Scoping
-## 6.1. Lexical Scoping
+# 7. Scoping
+## 7.1. Lexical Scoping
 Inner function has access to parent variables
 
 
 
-# 7. Syntax
-## 7.1. Arrow 
+# 8. Syntax
+## 8.1. Arrow 
 ```
     => expression,
     // is equivalent to 
     {return expression;},
 ```
 
-## 7.2. Closure/Inline Functions
+## 8.2. Closure/Inline Functions
 ```
     () => expression
     
@@ -299,7 +303,7 @@ Inner function has access to parent variables
     }
 ```
 
-## 7.3. Anonymous Multiline Function
+## 8.3. Anonymous Multiline Function
 ```
   () {expression}
   // is equivalent to
@@ -308,19 +312,19 @@ Inner function has access to parent variables
   }
 ```
 
-## 7.4. Conditional Rendering
-### 7.4.1. Binary if
+## 8.4. Conditional Rendering
+### 8.4.1. Binary if
 `if (Responsive.isDesktop()) Text('Desktop)`
-### 7.4.2. Ternary Operator
+### 8.4.2. Ternary Operator
 `Responsive.isDesktop() ? Text('Desktop') : null`
 
-### 7.4.3. Multiple if
+### 8.4.3. Multiple if
 ```
   (() {
     // your code here
   }())
 ```
-### 7.4.4. Spread Operator
+### 8.4.4. Spread Operator
 - Can be used to return multiple widgets
 `if (Responsive.isDesktop()) ...[
     Text('Desktop')
@@ -328,13 +332,13 @@ Inner function has access to parent variables
   ]
 `
 
-# 8. Sizing
-## 8.1. Sizes, Constraints and Positions
-### 8.1.1. Rules
+# 9. Sizing
+## 9.1. Sizes, Constraints and Positions
+### 9.1.1. Rules
   - Constraints go down
   - Sizes go up
   - Parent sets position
-### 8.1.2. Process 
+### 9.1.2. Process 
 For an arbitrary widget X, its parent Y, and its children Z
 1. Y passes its constraints down to X
    - min/max height/width
@@ -344,39 +348,39 @@ For an arbitrary widget X, its parent Y, and its children Z
 4. X sets positions of Z
 5. X tells Y its final size 
 
-### 8.1.3. Limitations
+### 9.1.3. Limitations
 - Size defined in widget only within constraints of parent
 - Widget does not know/decide its position
 - Defining alignment must be specific or child size may be ignored
 
-### 8.1.4. Mechanisms
+### 9.1.4. Mechanisms
 - RenderBox
   - Underlying object used to render widgets
 
-### 8.1.5. Types of Constraints
-#### 8.1.5.1. As Big As Possible
+### 9.1.5. Types of Constraints
+#### 9.1.5.1. As Big As Possible
 - e.g.,
   - Center
   - ListView
   - Container (null width and height)
-#### 8.1.5.2. Same Size if Possible
+#### 9.1.5.2. Same Size if Possible
 - e.g.,
   - Transform
   - Opacity
   - Container (non null width or height)
-#### 8.1.5.3. Fixed Size if Possible
+#### 9.1.5.3. Fixed Size if Possible
 - e.g., 
   - Image
   - Text
-## 8.2. BoxConstraints
+## 9.2. BoxConstraints
 - Passed to Container.constraints
 - Can specify max/min width/height
 
-## 8.3. LayoutBuilder 
+## 9.3. LayoutBuilder 
 - Provides parent constraints to child
 - Builds at layout time
 
-## 8.4. FractionallySizedBox
+## 9.4. FractionallySizedBox
 - Provides percentage of parent size to child
 
 ```
@@ -392,27 +396,27 @@ ParentWidget(
 )
 ```
 
-# 9. Layout
-## 9.1. SafeArea
+# 10. Layout
+## 10.1. SafeArea
 - Should exist at top level
   - for iPhone notches etc
-## 9.2. Container
+## 10.2. Container
 - Expands to fit parent 
 
-## 9.3. Aligning
+## 10.3. Aligning
 - Align
 - Center
 
-## 9.4. SizedBox
+## 10.4. SizedBox
 - Fixed size or
 - unconstrained in height or width if it is null
 
-## 9.5. SliverGrid
+## 10.5. SliverGrid
 - Need parent to specify layout
 - Does not depend on size of children
 
-## 9.6. Performance
-### 9.6.1. build() is costly
+## 10.6. Performance
+### 10.6.1. build() is costly
 - avoid repetitive build in complex layouts
 - PROBLEM: top level stateless widget has a build method
   - within build method there are a bunch of widgets
@@ -422,34 +426,34 @@ ParentWidget(
   - extend widget as stateless widget, which has its own build method
     - widget will only be built once
 
-### 9.6.2. itemExtend for ListView 
+### 10.6.2. itemExtend for ListView 
 - when action triggers jumping to other end of the list
-# 10. Weird Problems
-## 10.1. Vertical Dividers not showing
+# 11. Weird Problems
+## 11.1. Vertical Dividers not showing
 
-# 11. Scrolling
-## 11.1. ListView
+# 12. Scrolling
+## 12.1. ListView
 
-## 11.2. ListView.builder()
+## 12.2. ListView.builder()
 
-## 11.3. ListView.custom()
-# 12. Animations
+## 12.3. ListView.custom()
+# 13. Animations
 Animation Types:
-## 12.1. Drawing-based
+## 13.1. Drawing-based
 - Use external framework and export to flutter (e..g, Flare, Lottie)
-## 12.2. Code-based
-### 12.2.1. Implicit (AnimatedFoo)
-#### 12.2.1.1. BuiltIn
-#### 12.2.1.2. Custom: TweenAnimationBuilder
-### 12.2.2. Explicit (FooTransition)
+## 13.2. Code-based
+### 13.2.1. Implicit (AnimatedFoo)
+#### 13.2.1.1. BuiltIn
+#### 13.2.1.2. Custom: TweenAnimationBuilder
+### 13.2.2. Explicit (FooTransition)
 - Requires AnimationController, and managing life cycle inside stateful widget
 Used if any of the following is true:
 - Repeats forever
 - Discontinuous animation
 - Multiple widgets animating together
-#### 12.2.2.1. Built In
-#### 12.2.2.2. Custom
-##### 12.2.2.2.1. AnimatedWidget
+#### 13.2.2.1. Built In
+#### 13.2.2.2. Custom
+##### 13.2.2.2.1. AnimatedWidget
 - Standalone widget
 - Use Process:
 1. Define class to extend `AnimatedWidget`
@@ -504,7 +508,7 @@ class _ExampleStatefulState extends State<ExampleStateful>
 }
 
 ```
-##### 12.2.2.2.2. CustomPainter
+##### 13.2.2.2.2. CustomPainter
 - Similar to AnimatedWidget but paints directly to canvas without Widget build paradigm, for complex animations or higher performance. Could cause more performance problems if misused.
 - CustomPaint is a widget which provides a canvas and takes a CustomPainter to execute paint commands.
 - Implementation:
@@ -554,24 +558,24 @@ class MyPainter extends CustomPainter {
 
 }
 ```
-##### 12.2.2.2.3. AnimatedBuilder
+##### 13.2.2.2.3. AnimatedBuilder
 - Part of parent widget
 
 
 
 
-# 13. Asynchronous Programming
+# 14. Asynchronous Programming
 Completion of other work while waiting for a complex operation to finish.
 The complex operation is usually set to be the asynchronous function.
 
-## 13.1. Terminology
+## 14.1. Terminology
 - Synchronous operation: Blocks other operations from executing till it completes
 - Synchronous function: Only syncOp
 - Asynchronous operation: Allows other operations to execute before it completes
 - Asynchronous function: >=1 asyncOp
 
 
-## 13.2. futures
+## 14.2. futures
 - `future`: instance of Future class
   - Represents result of asyncOp:
     - Uncompleted, waiting for asyncOp to finish or throw an error
@@ -580,50 +584,50 @@ The complex operation is usually set to be the asynchronous function.
 - `Future<ReturnValueType>`: class returning future value of ReturnValueType
   -  
 
-## 13.3. async
-## 13.4. await
+## 14.3. async
+## 14.4. await
 
-# 14. Generators (*)
+# 15. Generators (*)
 - Function which returns multiple values
 - e.g., sync function returns `int`, async function returns `Future<int>`, sync generator returns `Iterable<int>`, async generator returns `Stream<int>`
 - Uses `yield` instead of `return`
 
 
-# 15. Inheritance
-## 15.1. extends
+# 16. Inheritance
+## 16.1. extends
 - making all properties, variables, functions of superclass  available to subclass
-## 15.2. implements
+## 16.2. implements
 - making type of superclass available to subclass
 - all functions must be implemented/overridden 
-## 15.3. with (mixin)
+## 16.3. with (mixin)
 - making properties, variables, functions of a different class available to a subclass 
 
 
-# 16. Variable Types
-## 16.1. Lists
-### 16.1.1. Constructors
-#### 16.1.1.1. .empty()
+# 17. Variable Types
+## 17.1. Lists
+### 17.1.1. Constructors
+#### 17.1.1.1. .empty()
 - 
-#### 16.1.1.2. .filled()
+#### 17.1.1.2. .filled()
 - List of given length with fixed value at each position
-#### 16.1.1.3. .from()
+#### 17.1.1.3. .from()
 - List containing all elements
-#### 16.1.1.4. .generate()
+#### 17.1.1.4. .generate()
 - List of given length with values from a generator
-#### 16.1.1.5. .of()
+#### 17.1.1.5. .of()
 - List from elements
-#### 16.1.1.6. .unmodifiable()
+#### 17.1.1.6. .unmodifiable()
 - Unmodifiable list containing all elements
 
-## 16.2. Modifiers
-### 16.2.1. static
+## 17.2. Modifiers
+### 17.2.1. static
 - modifies members of a class (variables, functions)
   - only affects the class, not on instances of the class 
-### 16.2.2. final
+### 17.2.2. final
 - modifies variables (`var, int, double`)
   - must be assigned on init
   - shallow immutability: e.g., final collection members can be mutable, collection itself is immutable
-### 16.2.3. const
+### 17.2.3. const
 - modifies values and objects (`[1,2,3], Point(2,3)`)
   - compile time constant: state can be determined at compile time and is then frozen (e.g., `1+2` is compile time const, `DateTime.now()` is not)
   - deep (transitive) immutability: e.g., const collection members are immutable, recursively
