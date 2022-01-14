@@ -17,7 +17,6 @@
       - [1.4.1.7. Resource Owner Password Credentials](#1417-resource-owner-password-credentials)
 
 # 1. Open Authorization Framework 2.0
-
 ## 1.1. Roles
 
 ### 1.1.1. Resource Owners
