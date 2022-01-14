@@ -1,3 +1,21 @@
+- [1. Open Authorization Framework 2.0](#1-open-authorization-framework-20)
+  - [1.1. Roles](#11-roles)
+    - [1.1.1. Resource Owners](#111-resource-owners)
+    - [1.1.2. Servers](#112-servers)
+    - [1.1.3. Client](#113-client)
+  - [1.2. Flow](#12-flow)
+  - [1.3. Components](#13-components)
+  - [1.4. Grants](#14-grants)
+    - [1.4.1. Grant Types](#141-grant-types)
+      - [1.4.1.1. Authorisation Code](#1411-authorisation-code)
+      - [1.4.1.2. PKCE](#1412-pkce)
+      - [1.4.1.3. Client Credentials](#1413-client-credentials)
+      - [1.4.1.4. Device Code](#1414-device-code)
+      - [1.4.1.5. Refresh Code](#1415-refresh-code)
+      - [1.4.1.6. Deprecated](#1416-deprecated)
+        - [1.4.1.6.1. Implicit](#14161-implicit)
+      - [1.4.1.7. Resource Owner Password Credentials](#1417-resource-owner-password-credentials)
+
 # 1. Open Authorization Framework 2.0
 
 ## 1.1. Roles
@@ -57,7 +75,7 @@
   - Back Channel
     - Steps 3 to 6 done through back 
     - Not visible to user
-## Components
+## 1.3. Components
 - Access Token (AccToken)
   - Provides client with access to protected resources 
 - Authorization Grant (AuthGrant)
@@ -65,11 +83,11 @@
 - Client Secret
   - Secret known only to client and AS
   - i.e., application password
-## 1.3. Grants
+## 1.4. Grants
 - Credential representing RO's authorisation
 
-### 1.3.1. Grant Types
-#### 1.3.1.1. Authorisation Code
+### 1.4.1. Grant Types
+#### 1.4.1.1. Authorisation Code
 - Use Case:
   - For confidential and public clients
   - 
@@ -86,25 +104,26 @@
     - Client receives authorisation code from redirect URL
     - Client requests AccToken with Authorisation Code
 
-#### PKCE
+#### 1.4.1.2. PKCE
 - Extension to Authorisation Code to prevent CSRF and authorisation code injection attacks
 - Use Case:
   - 
-#### 1.3.1.4. Client Credentials
+#### 1.4.1.3. Client Credentials
 - Use Case:
   - For confidential clients only
     - e.g., B2B or client and server are part of same system
 Client sends authorisation request with credentials to AS
 AS sends AccToken to client
 
-#### Device Code
+#### 1.4.1.4. Device Code
 - Exchanges previously obtained device code for AccToken
 - Use Case:
   - Browserless/input constrainted device
-#### Refresh Code
-
-#### Deprecated
-##### 1.3.1.2. Implicit
+#### 1.4.1.5. Refresh Code
+- Exchanges previously obtained refresh token for an AccToken 
+  - Done when AccToken has expired
+#### 1.4.1.6. Deprecated
+##### 1.4.1.6.1. Implicit
 - aka User Agent Flow
 - Use Case:
   - Public clients
@@ -113,7 +132,7 @@ AS sends AccToken to client
   - Exposed to user, may be compromised before expiry
 - Substitute
   - Authorization Code + PKCE
-#### 1.3.1.3. Resource Owner Password Credentials
+#### 1.4.1.7. Resource Owner Password Credentials
 - aka Password Grant, Password Flow, Username-Password Auth Flow
 - Use Case:
   - RO/EU has trust relationship with client 
