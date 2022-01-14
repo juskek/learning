@@ -5,7 +5,9 @@
     - [1.1.3. HTTPS Version](#113-https-version)
   - [1.2. >=0 Header Fields](#12-0-header-fields)
   - [1.3. Message Body](#13-message-body)
-  - [Cross-Origin Resource Sharing (CORS)](#cross-origin-resource-sharing-cors)
+  - [Request Headers](#request-headers)
+    - [User-Agent](#user-agent)
+    - [1.4. Cross-Origin Resource Sharing (CORS)](#14-cross-origin-resource-sharing-cors)
 
 # 1. Client-Server Request Process
 Client sends request to server in form of message with format:
@@ -37,7 +39,11 @@ Host: <>.com
 
 **Example**
 GET https://www.example.com/test.pdf HTTPS/1.1
-
-## Cross-Origin Resource Sharing (CORS)
+## Request Headers
+### User-Agent
+- Lets servers and network peers identify app, OS, vendor and/or version of user agent
+- User agent is a program representing a person
+  - e.g., browser, app
+### 1.4. Cross-Origin Resource Sharing (CORS)
 - Allows server to permit loading resources from external origins  
   - For security, browsers restrict cross-origin HTTP requests intiated from scripts
