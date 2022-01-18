@@ -1,8 +1,16 @@
 - [1. Architecture](#1-architecture)
-  - [1.1. main](#11-main)
-  - [1.2. routes](#12-routes)
-  - [1.3. styles](#13-styles)
-  - [1.4. index](#14-index)
+  - [State Management](#state-management)
+    - [UI Approach](#ui-approach)
+      - [Declarative](#declarative)
+      - [Imperative](#imperative)
+    - [State Types](#state-types)
+      - [Ephemeral State](#ephemeral-state)
+      - [App State](#app-state)
+    - [State Management Approaches](#state-management-approaches)
+      - [Provider](#provider)
+      - [Redux](#redux)
+      - [Rx](#rx)
+      - [Hooks](#hooks)
 - [2. State, Widgets and Elements](#2-state-widgets-and-elements)
   - [2.1. State Definition](#21-state-definition)
   - [2.2. StatelessWidget](#22-statelesswidget)
@@ -108,11 +116,54 @@
     - [17.2.3. const](#1723-const)
 
 # 1. Architecture
-## 1.1. main
-## 1.2. routes
-## 1.3. styles
-## 1.4. index
+## State Management
+### UI Approach
+#### Declarative
+- what to show from state
+  - e.g., in Dart/Flutter:
+```
+return Center(Text('Hello World'))
+```
+#### Imperative
+- how to show from state
+  - e.g., in Java/Android Ice Cream Sandwich:
+```
+setContentView
 
+return  <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="Hello World!"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintLeft_toLeftOf="parent"
+       app:layout_constraintRight_toRightOf="parent"
+       app:layout_constraintTop_toTopOf="parent" />
+```
+### State Types
+#### Ephemeral State
+- Definition
+  - UI or local state
+  - Contained in single widget
+  - e.g., animation progress, current page in pageview
+- Use cases
+  - Does not change in complex ways
+  - Other parts of widget tree seldom require access 
+- Methods
+  - Stateful widget
+#### App State
+- Definition
+  - Shared across many widgets
+  - e.g., user prefs, login info, notifications, shopping cart, read/unread articles
+- Use cases
+  - Required by many widgets
+  - Preserve some state between session, e.g., current page in page view
+### State Management Approaches
+
+#### Provider
+- Recommended if no strong reason to choose another approach
+#### Redux
+#### Rx
+#### Hooks
 # 2. State, Widgets and Elements
 ## 2.1. State Definition
 - Info within a widget which is read for building
@@ -209,7 +260,7 @@
 ## 4.4. Mechanism
 - Flutter's element-widget matching mechanism checks for same type 
 - Rearranging Stateless Widgets
-  1. Stateles
+  1. Stateless
 - Rearranging Stateful Widgets
 # 5. Syntax
 ## 5.1. Operators
