@@ -1,22 +1,28 @@
 - [1. Architecture](#1-architecture)
-  - [State Management](#state-management)
-    - [UI Approach](#ui-approach)
-      - [Declarative](#declarative)
-      - [Imperative](#imperative)
-    - [State Types](#state-types)
-      - [Ephemeral State](#ephemeral-state)
-      - [App State](#app-state)
-    - [State Management Approaches](#state-management-approaches)
-      - [Provider](#provider)
-      - [Redux](#redux)
-      - [Rx](#rx)
-      - [Hooks](#hooks)
+  - [1.1. State Management](#11-state-management)
+    - [1.1.1. UI Approach](#111-ui-approach)
+      - [1.1.1.1. Declarative](#1111-declarative)
+      - [1.1.1.2. Imperative](#1112-imperative)
+    - [1.1.2. State Types](#112-state-types)
+      - [1.1.2.1. Ephemeral State](#1121-ephemeral-state)
+      - [1.1.2.2. App State](#1122-app-state)
+    - [1.1.3. App State Management Approaches](#113-app-state-management-approaches)
+      - [1.1.3.1. Provider](#1131-provider)
+        - [1.1.3.1.1. ChangeNotifier](#11311-changenotifier)
+        - [1.1.3.1.2. ChangeNotifierProvider](#11312-changenotifierprovider)
+        - [1.1.3.1.3. Consumer](#11313-consumer)
+        - [1.1.3.1.4. Provider.of](#11314-providerof)
+      - [1.1.3.2. InheritedWidget](#1132-inheritedwidget)
+        - [InheritedWidget](#inheritedwidget)
+        - [Usage](#usage)
+      - [1.1.3.3. Redux](#1133-redux)
+      - [1.1.3.4. Rx](#1134-rx)
+      - [1.1.3.5. Hooks](#1135-hooks)
 - [2. State, Widgets and Elements](#2-state-widgets-and-elements)
   - [2.1. State Definition](#21-state-definition)
   - [2.2. StatelessWidget](#22-statelesswidget)
   - [2.3. StatefulWidget](#23-statefulwidget)
-  - [2.4. InheritedWidget](#24-inheritedwidget)
-  - [2.5. Lifecycles](#25-lifecycles)
+  - [2.4. Lifecycles](#24-lifecycles)
 - [3. Trees](#3-trees)
   - [3.1. Widget Tree (WT)](#31-widget-tree-wt)
   - [3.2. Element Tree (ET)](#32-element-tree-et)
@@ -116,31 +122,31 @@
     - [17.2.3. const](#1723-const)
 
 # 1. Architecture
-## State Management
-### UI Approach
-#### Declarative
+## 1.1. State Management
+### 1.1.1. UI Approach
+#### 1.1.1.1. Declarative
 - what to show from state
   - e.g., in Dart/Flutter:
 ```
-return Center(Text('Hello World'))
+string = 'Hello World'
+build() {
+  return Text(string) // text gets destroyed and rebuilt
+}
 ```
-#### Imperative
+- Updating text on screen can be done by mutating state outside of build
+  - e.g., string = string + ! builds HelloWorld!
+#### 1.1.1.2. Imperative
 - how to show from state
-  - e.g., in Java/Android Ice Cream Sandwich:
+  - e.g., in Java/Android:
 ```
-setContentView
-
-return  <TextView
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:text="Hello World!"
-       app:layout_constraintBottom_toBottomOf="parent"
-       app:layout_constraintLeft_toLeftOf="parent"
-       app:layout_constraintRight_toRightOf="parent"
-       app:layout_constraintTop_toTopOf="parent" />
+build() {
+  return Text.setText('Hello World') // text does not get destroyed, value gets updated
+}
 ```
-### State Types
-#### Ephemeral State
+- Updating text on screen must be done by accessing current UI state before mutating UI
+  - e.g., Text.setText(Text.getText+"!") builds HelloWorld!
+### 1.1.2. State Types
+#### 1.1.2.1. Ephemeral State
 - Definition
   - UI or local state
   - Contained in single widget
@@ -150,20 +156,123 @@ return  <TextView
   - Other parts of widget tree seldom require access 
 - Methods
   - Stateful widget
-#### App State
+#### 1.1.2.2. App State
 - Definition
   - Shared across many widgets
   - e.g., user prefs, login info, notifications, shopping cart, read/unread articles
 - Use cases
   - Required by many widgets
   - Preserve some state between session, e.g., current page in page view
-### State Management Approaches
+- Methods
+  - see 1.1.3
+  - App State should be placed above widgets which use it
+  - Allows sub widgets to access parent state from anywhere in the tree without passing state down through multiple widgets
+### 1.1.3. App State Management Approaches
 
-#### Provider
-- Recommended if no strong reason to choose another approach
-#### Redux
-#### Rx
-#### Hooks
+#### 1.1.3.1. Provider
+- Recommended by Flutter; Easy to use and understandable
+- Use Cases
+  - No strong reason to choose another approach
+##### 1.1.3.1.1. ChangeNotifier
+- Provides change notification to listeners/subscribers
+  - via notifyListeners()
+  - causes rebuild
+- e.g.,
+```
+class ShoppingCartModel extends ChangeNotifier {
+  final List<Item> items = [];
+  void addToCart(Item item) {
+    items.add(item);
+    notifyListeners(); 
+  }
+}
+```
+##### 1.1.3.1.2. ChangeNotifierProvider
+- Provides instance of ChangeNotifier to descendants
+  - should not place higher than necessary to prevent pollution of scope
+- e.g.,
+```
+void main() {
+  ChangeNotifierProvider(
+    create: (context) => ShoppingCartModel(),
+    child: constMyApp,
+  )
+}
+```
+- Multiple providers possible:
+```
+void main() {
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => CartModel()),
+        Provider(create: (context) => SomeOtherClass()),
+      ],
+      child: const MyApp(),
+    ),
+  );
+}
+```
+##### 1.1.3.1.3. Consumer
+- Grants access to provider state and triggers rebuild when provider state changes
+  - type of model must be specified, e.g., `<CartModel>`
+  - put Consumer as deep in tree as possible to prevent unnecessary rebuilds
+- e.g.,
+```
+return Consumer<CartModel>(
+  builder: (context, cart, child) {
+    return Text("Total price: ${cart.totalPrice}");
+  },
+);
+```
+- arguments:
+  - context
+  - ChangeNotifier instance
+    - Instance of requested provider type
+  - child
+    - Used for optimisation
+      - when there are expensive widgets that
+        - is under Consumer, and
+        - does not change with ChangeNotifier
+        - e.g.,
+```
+return Consumer<CartModel>(
+  builder: (context, cart, child) => Stack(
+    children: [
+      // Use SomeExpensiveWidget here, without rebuilding every time.
+      if (child != null) child,
+      Text("Total price: ${cart.totalPrice}"),
+    ],
+  ),
+  // Build the expensive widget here.
+  child: const SomeExpensiveWidget(),
+);
+```
+##### 1.1.3.1.4. Provider.of
+- Grants access to provider state without rebuild
+```
+Provider.of<CartModel>(context, listen: false).removeAll();
+```
+#### 1.1.3.2. InheritedWidget
+- Low-level approach in widget tree
+- Used by high-level approaches under the hood, e.g., InheritedWidget
+
+##### InheritedWidget
+- Provides children in subtree access to its state
+- Components:
+  - State variables, 
+    - e.g., final int itemsInCart;
+  - of method
+    - Provides exact instance of InheritedWidget to child
+  - updateShouldNotify method
+    - Controls when consumers are rebuilt
+    - Has oldWidget as argument, which allows comparing of current and previous state
+
+##### Usage
+- InheritedWidget.of(context).stateVariableName
+#### 1.1.3.3. Redux
+#### 1.1.3.4. Rx
+#### 1.1.3.5. Hooks
 # 2. State, Widgets and Elements
 ## 2.1. State Definition
 - Info within a widget which is read for building
@@ -218,10 +327,9 @@ return  <TextView
     - object removed from WT temp
   - setState() triggers
     - State change
-## 2.4. InheritedWidget
-- Allows sub widgets to access InheritedWidget state from anywhere in the tree without passing state down through multiple widgets
 
-## 2.5. Lifecycles
+
+## 2.4. Lifecycles
 
 # 3. Trees
 ## 3.1. Widget Tree (WT)
