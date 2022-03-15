@@ -24,8 +24,9 @@
   - [2.3. StatefulWidget](#23-statefulwidget)
   - [2.4. Lifecycles](#24-lifecycles)
 - [3. Trees](#3-trees)
-  - [3.1. Widget Tree (WT)](#31-widget-tree-wt)
-  - [3.2. Element Tree (ET)](#32-element-tree-et)
+  - [3.1. Widget Tree (WT) - Configure](#31-widget-tree-wt---configure)
+  - [3.2. Element Tree (ET) - Lifecycle](#32-element-tree-et---lifecycle)
+  - [RenderObject Tree (RT) - Paint](#renderobject-tree-rt---paint)
 - [4. Keys](#4-keys)
   - [4.1. When to use](#41-when-to-use)
   - [4.2. Where to use](#42-where-to-use)
@@ -332,12 +333,15 @@ Provider.of<CartModel>(context, listen: false).removeAll();
 ## 2.4. Lifecycles
 
 # 3. Trees
-## 3.1. Widget Tree (WT)
-- How, what and when to show on screen
+## 3.1. Widget Tree (WT) - Configure
+- Immutable description of what to show on screen
 - Creates elements to mount in element tree
-## 3.2. Element Tree (ET)
+## 3.2. Element Tree (ET) - Lifecycle
+- Instantiation of WT
+- Mutable description of what to show on screen
+## RenderObject Tree (RT) - Paint
 - What is currently shown on screen
-
+- Handles size, layout and rendering
 # 4. Keys
 ## 4.1. When to use
 - When state needs to be preserved in widget tree
