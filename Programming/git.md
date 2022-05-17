@@ -1,0 +1,7 @@
+
+### Git hangs after writing objects and never pushes to origin
+https://stackoverflow.com/questions/15843937/git-push-hangs-after-total-line
+
+1. git config --global http.postBuffer 157286400
+2. git commit and push
+3. git config --global http.postBuffer 1048576
