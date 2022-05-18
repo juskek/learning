@@ -12,7 +12,7 @@ from module_one import ModuleOne
 '''
 
 # ! ModuleNotFoundError: No module named 'lib'
-# from lib.package_common.module_common import ModuleCommon
+# from lib.package_common.module_common i\mport ModuleCommon
 # ! ImportError: attempted relative import with no known parent package
 # from ..lib.package_common.module_common import ModuleCommon
 
