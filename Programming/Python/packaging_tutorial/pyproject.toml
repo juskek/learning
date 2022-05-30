@@ -1,0 +1,6 @@
+[build-system]
+requires = ["setuptools>=42"]
+build-backend = "setuptools.build_meta"
+
+# build-system.requires gives a list of packages that are needed to build your package. Listing something here will only make it available during the build, not after it is installed.
+# build-system.build-backend is the name of Python object that will be used to perform the build. 
