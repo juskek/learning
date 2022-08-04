@@ -18,6 +18,13 @@
       - [1.1.3.3. Redux](#1133-redux)
       - [1.1.3.4. Rx](#1134-rx)
       - [1.1.3.5. Hooks](#1135-hooks)
+    - [Focus System](#focus-system)
+      - [Overview](#overview)
+      - [Elements](#elements)
+        - [Focus Tree](#focus-tree)
+        - [Focus Node](#focus-node)
+        - [Focus Scope](#focus-scope)
+        - [Focus](#focus)
 - [2. State, Widgets and Elements](#2-state-widgets-and-elements)
   - [2.1. State Definition](#21-state-definition)
   - [2.2. StatelessWidget](#22-statelesswidget)
@@ -121,6 +128,7 @@
     - [17.2.1. static](#1721-static)
     - [17.2.2. final](#1722-final)
     - [17.2.3. const](#1723-const)
+- [Errors and Exceptions](#errors-and-exceptions)
 
 # 1. Architecture
 ## 1.1. State Management
@@ -274,6 +282,39 @@ Provider.of<CartModel>(context, listen: false).removeAll();
 #### 1.1.3.3. Redux
 #### 1.1.3.4. Rx
 #### 1.1.3.5. Hooks
+
+
+### Focus System
+
+#### Overview
+- Directs keyboard input
+- Terminology:
+  - 
+  - Primary focus
+    - Farthest node away from root of tree that has focus
+    - Key events propagate from primary focus node to ancestors
+  - Focus chain
+    - Ordered list of nodes along branch from primary focus node to root
+  - Focus Traversal 
+    - Moving focus from one node to another predictably
+    - E.g., pressing tab on keyboard
+
+#### Elements
+##### Focus Tree
+- Sparsely mirrors widget tree
+- Contains focus nodes
+##### Focus Node
+- Represents widget that can receive focus
+- Has focus: part of the focus chain
+  - Handles key events only when it has focus
+##### Focus Scope
+- Focus node which contains a group of focus nodes
+- Limits focus to its nodes
+- Contains info about which nodes were previously focused in its subtree
+
+##### Focus
+- Widget that owns and manages a focus node
+- 
 # 2. State, Widgets and Elements
 ## 2.1. State Definition
 - Info within a widget which is read for building
@@ -795,3 +836,12 @@ The complex operation is usually set to be the asynchronous function.
   - compile time constant: state can be determined at compile time and is then frozen (e.g., `1+2` is compile time const, `DateTime.now()` is not)
   - deep (transitive) immutability: e.g., const collection members are immutable, recursively
   - canonicalised values and objects: all assignments of the const value/object will refer to the same instance
+
+
+
+# Errors and Exceptions
+Error and its subclasses are for programmatic errors. If one of those occurs, your code is bad and you should fix your code.
+
+Non-Error exception classes are for runtime errors. Sometimes you can prevent them from being thrown, but often you cannot.
+
+Except in a few special circumstances, idiomatic Dart should throw Errors, but never catch them. They exists specifically to not be caught so that they take down the app and alert the programmer to the location of the bug.
