@@ -129,6 +129,8 @@
     - [17.2.2. final](#1722-final)
     - [17.2.3. const](#1723-const)
 - [Errors and Exceptions](#errors-and-exceptions)
+  - [Errors](#errors)
+  - [Exceptions](#exceptions)
 
 # 1. Architecture
 ## 1.1. State Management
@@ -840,8 +842,15 @@ The complex operation is usually set to be the asynchronous function.
 
 
 # Errors and Exceptions
+## Errors
+An Error in Dart should be thrown for unexpected program flow and should not be caught but addressed by the programmer:
+
 Error and its subclasses are for programmatic errors. If one of those occurs, your code is bad and you should fix your code.
 
-Non-Error exception classes are for runtime errors. Sometimes you can prevent them from being thrown, but often you cannot.
 
 Except in a few special circumstances, idiomatic Dart should throw Errors, but never catch them. They exists specifically to not be caught so that they take down the app and alert the programmer to the location of the bug.
+
+## Exceptions 
+An Exception in Dart should be thrown for regular, expected program flow and is intended to be caught:
+
+An Exception is intended to convey information to the user about a failure, so that the error can be addressed programmatically. It is intended to be caught, and it should contain useful data fields.
