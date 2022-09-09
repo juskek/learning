@@ -5,3 +5,7 @@ https://stackoverflow.com/questions/15843937/git-push-hangs-after-total-line
 1. git config --global http.postBuffer 157286400
 2. git commit and push
 3. git config --global http.postBuffer 1048576
+
+
+## Squash all commits on current branch into one
+git reset $(git commit-tree HEAD^{tree} -m "A new start")
